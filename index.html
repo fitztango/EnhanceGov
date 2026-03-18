@@ -1294,11 +1294,11 @@
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input id="diag-first" name="First Name" type="text" placeholder="Stephanie" required>
+            <input id="diag-first" name="name" type="text" placeholder="Stephanie" required>
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input id="diag-last" name="Last Name" type="text" placeholder="Fitzpatrick">
+            <input id="diag-last" name="Last Name" type="text" placeholder="Fitzpatrick"><input type="hidden" id="diag-fullname" name="from_name" value="">
           </div>
         </div>
         <div class="form-group">
@@ -1315,7 +1315,7 @@
         </div>
         <div class="form-group">
           <label>What's the gap you're trying to close?</label>
-          <textarea id="diag-message" name="Message" placeholder="Describe the challenge you're facing. What's not working the way it should? There are no wrong answers here."></textarea>
+          <textarea id="diag-message" name="message" placeholder="Describe the challenge you're facing. What's not working the way it should? There are no wrong answers here."></textarea>
         </div>
         <button type="submit" class="form-submit" >Request a Discovery Conversation →</button>
         <p class="form-note" id="diag-status">I respond to every inquiry personally, usually within 24 hours. If we're a good fit, we'll schedule a discovery call before moving to the Diagnostics engagement.</p>
@@ -1394,7 +1394,7 @@
             <!-- Visible fields -->
             <div class="form-group">
               <label>First Name</label>
-              <input id="mail-first" name="First Name" type="text" placeholder="Your first name" required>
+              <input id="mail-first" name="name" type="text" placeholder="Your first name" required>
             </div>
             <div class="form-group">
               <label>Work Email</label>
@@ -1710,11 +1710,11 @@
           <div class="form-row">
             <div class="form-group">
               <label>First Name</label>
-              <input id="con-first" name="First Name" type="text" placeholder="First name" required>
+              <input id="con-first" name="name" type="text" placeholder="First name" required>
             </div>
             <div class="form-group">
               <label>Last Name</label>
-              <input id="con-last" name="Last Name" type="text" placeholder="Last name">
+              <input id="con-last" name="Last Name" type="text" placeholder="Last name"><input type="hidden" id="con-fullname" name="from_name" value="">
             </div>
           </div>
           <div class="form-group">
@@ -1731,7 +1731,7 @@
           </div>
           <div class="form-group">
             <label>What's the gap you're trying to close?</label>
-            <textarea id="con-message" name="Message" placeholder="Describe the challenge you're facing. There are no wrong answers here."></textarea>
+            <textarea id="con-message" name="message" placeholder="Describe the challenge you're facing. There are no wrong answers here."></textarea>
           </div>
           <button type="submit" class="form-submit" >Request a Discovery Conversation →</button>
           <p class="form-note" id="con-status">I respond to every inquiry personally, usually within 24 hours. If we're a good fit, we'll schedule a discovery call before moving to the Diagnostics engagement.</p>
@@ -1784,19 +1784,29 @@
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // ── FORM VALIDATION (native POST to FormSubmit.co) ───────────
-  // All forms submit directly via HTML POST — no AJAX, no CORS issues.
+  // ── FORM VALIDATION + Web3Forms submission ───────────────────
   // Web3Forms receives the POST and forwards to sfitzpatrick@enhancegov.com.
-  // This function only validates required fields before the native submit fires.
+  // Requires: access_key, name, email fields (already in each form).
+  // NOTE: Forms must be served from a web server (not file://) to submit correctly.
 
   document.querySelectorAll('form[id^="form-"]').forEach(function(form) {
     form.addEventListener('submit', function(e) {
       var prefix = form.id.replace('form-', '');
-      var firstEl = document.getElementById(prefix + '-first');
-      var emailEl = document.getElementById(prefix + '-email') ||
-                    document.getElementById('mail-email');
-      var note    = document.getElementById(prefix + '-status');
+      var firstEl    = document.getElementById(prefix + '-first');
+      var lastEl     = document.getElementById(prefix + '-last');
+      var emailEl    = document.getElementById(prefix + '-email') ||
+                       document.getElementById('mail-email');
+      var fullNameEl = document.getElementById(prefix + '-fullname');
+      var note       = document.getElementById(prefix + '-status');
 
+      // Populate combined full name into from_name hidden field
+      if (fullNameEl && firstEl) {
+        var full = firstEl.value.trim();
+        if (lastEl && lastEl.value.trim()) full += ' ' + lastEl.value.trim();
+        fullNameEl.value = full;
+      }
+
+      // Validate required fields
       var valid = true;
       if (firstEl && !firstEl.value.trim()) {
         valid = false;

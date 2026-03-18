@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnhanceGov LLC — Organizational Intelligence & Strategic Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:      #1B2A5E;
+    --navy-dark: #111C42;
+    --navy-mid:  #243580;
+    --green:     #7FD758;
+    --green-dim: #5CB83A;
+    --white:     #FFFFFF;
+    --off-white: #F7F8FB;
+    --gray-100:  #F0F1F5;
+    --gray-300:  #C8CADC;
+    --gray-500:  #7A7F9A;
+    --text-body: #2C3157;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', sans-serif;
+    --font-mono:    'DM Mono', monospace;
+  }
+  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+  
+  .page { display: none; animation: fadeIn 0.4s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 90px; background: var(--navy-dark); border-bottom: 1px solid rgba(127,215,88,0.15); }
+  nav.scrolled { height: 72px; }
+  .nav-brand { display: flex; align-items: center; gap: 16px; cursor: pointer; text-decoration: none; }
+  .nav-logo-mark { width: 38px; height: 38px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: 18px; color: var(--navy-dark); flex-shrink: 0; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 4px; }
+  .nav-brand-name { font-weight: 700; font-size: 18px; color: var(--white); line-height: 1.1; }
+  .nav-brand-sub { font-size: 11px; color: var(--green); letter-spacing: 0.12em; font-family: var(--font-mono); text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 8px; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); cursor: pointer; padding: 8px 12px; border-radius: 4px; transition: 0.3s; text-decoration: none; }
+  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+  .nav-links a.active { color: var(--green); }
+  .nav-cta { background: var(--green) !important; color: var(--navy-dark) !important; font-weight: 600 !important; padding: 9px 18px !important; }
+  .nav-cta:hover { background: var(--green-dim) !important; }
+  
+  .hero { background: var(--navy-dark); min-height: 100vh; display: flex; align-items: center; padding: 120px 5% 80px; position: relative; overflow: hidden; }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+  .hero h1 { font-family: var(--font-display); font-size: 78px; font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: 24px; }
+  .hero h1 em { color: var(--green); font-style: italic; }
+  .hero-sub { font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 40px; max-width: 580px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+  
+  .btn-primary { display: inline-block; background: var(--green); color: var(--navy-dark); font-family: var(--font-body); font-size: 14px; font-weight: 600; padding: 14px 28px; border-radius: 4px; border: none; cursor: pointer; transition: 0.3s; text-decoration: none; }
+  .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); }
+  
+  .btn-secondary { display: inline-block; background: transparent; color: rgba(255,255,255,0.8); font-family: var(--font-body); font-size: 14px; font-weight: 500; padding: 14px 28px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s; text-decoration: none; }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+  
+  section { padding: 100px 5%; }
+  h2 { font-family: var(--font-display); font-size: 44px; font-weight: 900; color: var(--navy); line-height: 1.15; margin-bottom: 20px; }
+  h3 { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+  p { font-size: 16px; color: var(--gray-500); line-height: 1.8; margin-bottom: 20px; }
+  
+  .section-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--green); }
+  
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .card { background: var(--off-white); border-left: 3px solid var(--green); padding: 24px 28px; border-radius: 0 4px 4px 0; }
+  .card-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+  
+  .cta-section { background: var(--navy-dark); padding: 80px 5%; text-align: center; }
+  .cta-section h2 { color: var(--white); }
+  .cta-section p { color: rgba(255,255,255,0.6); max-width: 560px; margin-left: auto; margin-right: auto; }
+  
+  footer { background: var(--navy-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 5% 28px; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 28px; }
+  .footer-brand { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .footer-brand strong { display: block; color: var(--white); font-size: 15px; margin-bottom: 4px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; text-decoration: none; }
+  .footer-links a:hover { color: var(--green); }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px; }
+  
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  
+  form { display: grid; gap: 16px; max-width: 500px; }
+  input, textarea { width: 100%; padding: 12px 16px; background: var(--off-white); border: 1px solid var(--gray-300); border-radius: 4px; font-family: var(--font-body); font-size: 14px; color: var(--navy); }
+  input:focus, textarea:focus { border-color: var(--navy); background: var(--white); outline: none; box-shadow: 0 0 0 3px rgba(27,42,94,0.08); }
+  textarea { resize: vertical; min-height: 100px; }
+  
+  @media (max-width: 960px) {
+    .grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero h1 { font-size: 48px; }
+  }
+  
+  @media (max-width: 640px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-brand" onclick="showPage('home')">
+    <div class="nav-logo-mark">E</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">EnhanceGov</span>
+      <span class="nav-brand-sub">Intelligence</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a onclick="showPage('home')" data-page="home">Home</a>
+    <a onclick="showPage('about')" data-page="about">About</a>
+    <a onclick="showPage('services')" data-page="services">Services</a>
+    <a onclick="showPage('diagnostics')" data-page="diagnostics">Diagnostics</a>
+    <a onclick="showPage('insights')" data-page="insights">Insights</a>
+    <a onclick="showPage('platform')" data-page="platform">Platform</a>
+    <a onclick="showPage('contact')" class="nav-cta">Request a Conversation</a>
+  </div>
+</nav>
+
+<!-- PAGE: HOME -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-eyebrow">Organizational Intelligence & Strategic Advisory</div>
+      <h1>Do people actually <em>tell you the truth?</em></h1>
+      <p class="hero-sub">Most CEOs don't know — until it's too late. Your data is clean. Your frameworks are in place. But the ROI still isn't showing up. The problem was never the technology.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('diagnostics')">Explore the Diagnostics →</button>
+        <button class="btn-secondary" onclick="showPage('services')">See the Method</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">The Problem</div>
+    <h2>The gap between what your data shows and what actually happens.</h2>
+    <p>You've invested in systems, hired consultants, and built governance frameworks. Yet the same obstacles resurface. Decisions slow down. People work around the process.</p>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to see what's actually driving the gap?</h2>
+    <p>Start with a conversation. If we're the right fit, the Pharos Gap Diagnostics reveals exactly what's driving the gap.</p>
+    <div style="margin-top: 36px;">
+      <button class="btn-primary" onclick="showPage('diagnostics')">Learn About the Diagnostics →</button>
+      <button class="btn-secondary" onclick="showPage('contact')" style="margin-left: 16px;">Contact Us</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- PAGE: ABOUT -->
+<div id="page-about" class="page">
+  <section>
+    <div class="section-eyebrow">About Stephanie Fitzpatrick</div>
+    <h2>Intelligence trained. <em>Organizationally applied.</em></h2>
+    <p>From CIA analyst to organizational intelligence advisor — a career built on seeing what others miss, and saying what others won't.</p>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div>
+        <p>I started my career where asking the wrong question could cost lives. As a CIA analyst, I was trained not just to find information — but to evaluate it through the lens of the target, to identify what wasn't being said, and to carry uncomfortable findings upward regardless of what leadership wanted to hear.</p>
+        <p>Over the next two decades, I applied that same analytical framework across enterprises most people treat as entirely separate: federal agencies, energy companies, enterprise healthcare systems. In every case, the surface problem was different. The underlying dynamic was nearly identical: <strong>a gap between what the organization said it was doing and what was actually happening at the human level.</strong></p>
+      </div>
+      <div>
+        <h3>Background & Credentials</h3>
+        <ul style="list-style: none; color: var(--gray-500);">
+          <li style="margin-bottom: 20px;"><strong style="color: var(--navy);">CIA Intelligence Analyst</strong><br>Organizational & behavioral intelligence</li>
+          <li style="margin-bottom: 20px;"><strong style="color: var(--navy);">Enterprise Healthcare</strong><br>Data governance & implementation</li>
+          <li style="margin-bottom: 20px;"><strong style="color: var(--navy);">Federal Sector</strong><br>Multi-agency strategic advisory</li>
+          <li><strong style="color: var(--navy);">Energy Sector</strong><br>Organizational restructuring</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Core Values</div>
+    <h2>What I bring to every engagement</h2>
+    <div class="grid" style="gap: 24px; grid-template-columns: 1fr 1fr 1fr;">
+      <div style="background: var(--white); padding: 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(27,42,94,0.06);">
+        <h3>Honesty</h3>
+        <p style="margin: 0;">I will tell you what I see — including what others haven't said out loud.</p>
+      </div>
+      <div style="background: var(--white); padding: 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(27,42,94,0.06);">
+        <h3>Empathy</h3>
+        <p style="margin: 0;">I evaluate from your point of view. The best intelligence starts with understanding what you're trying to accomplish.</p>
+      </div>
+      <div style="background: var(--white); padding: 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(27,42,94,0.06);">
+        <h3>Creativity</h3>
+        <p style="margin: 0;">The same problem solved the same way produces the same result. I bring fresh eyes to every engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to work together?</h2>
+    <p>Start with a conversation to see if we're the right fit — then let the Diagnostics tell us both what the organization actually needs.</p>
+    <div style="margin-top: 36px;">
+      <button class="btn-primary" onclick="showPage('contact')">Start the Conversation →</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- PAGE: SERVICES -->
+<div id="page-services" class="page">
+  <section>
+    <div class="section-eyebrow">The Pharos Method™</div>
+    <h2>Five stages. One foundation. You decide how far to go.</h2>
+    <p>Every engagement begins with the Gap Diagnostics — a structured intelligence assessment that reveals what's actually driving the gap between strategy and execution.</p>
+  </section>
+
+  <section style="padding-bottom: 0;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 48px;">
+      <div style="background: var(--navy-dark); padding: 32px 24px; cursor: pointer;" onclick="showPage('diagnostics')">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 12px;">STAGE 01</div>
+        <h3 style="color: var(--white); font-size: 16px; margin: 0 0 8px 0;">Gap Diagnostics™</h3>
+        <p style="color: rgba(255,255,255,0.55); font-size: 12px; margin: 0;">The required starting point.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 32px 24px; border-bottom: 3px solid transparent;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 12px;">STAGE 02</div>
+        <h3 style="font-size: 16px; margin: 0 0 8px 0;">Intelligence Mapping</h3>
+        <p style="font-size: 12px; margin: 0;">Map the culture & decision flows.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 32px 24px; border-bottom: 3px solid transparent;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 12px;">STAGE 03</div>
+        <h3 style="font-size: 16px; margin: 0 0 8px 0;">Strategic Alignment</h3>
+        <p style="font-size: 12px; margin: 0;">Align to organizational strategy.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 32px 24px; border-bottom: 3px solid transparent;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 12px;">STAGE 04</div>
+        <h3 style="font-size: 16px; margin: 0 0 8px 0;">Implementation Support</h3>
+        <p style="font-size: 12px; margin: 0;">Advisory through execution.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 32px 24px; border-bottom: 3px solid transparent;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 12px;">STAGE 05</div>
+        <h3 style="font-size: 16px; margin: 0 0 8px 0;">Sustained Intelligence</h3>
+        <p style="font-size: 12px; margin: 0;">Ongoing organizational clarity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Four Ways to Work with EnhanceGov</h3>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 36px;">
+      <div style="background: var(--off-white); padding: 36px 32px; border-top: 3px solid var(--green); border-radius: 8px;">
+        <h4 style="font-family: var(--font-display); color: var(--navy); margin-bottom: 12px;">01 · Individual Diagnostic</h4>
+        <p style="font-size: 14px;">Experience the Pharos methodology firsthand. Ideal for executives who want to understand the tool before bringing it to their organization.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 36px 32px; border-top: 3px solid var(--green); border-radius: 8px;">
+        <h4 style="font-family: var(--font-display); color: var(--navy); margin-bottom: 12px;">02 · Full Company Diagnostic</h4>
+        <p style="font-size: 14px;">An aggregated organization-wide assessment that surfaces the real picture across teams, levels, and functions.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 36px 32px; border-top: 3px solid var(--green); border-radius: 8px;">
+        <h4 style="font-family: var(--font-display); color: var(--navy); margin-bottom: 12px;">03 · Full Engagement Retainer</h4>
+        <p style="font-size: 14px;">Monthly retainer covering active advisory presence through Stages 2–5 of the Pharos Method.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 36px 32px; border-top: 3px solid var(--green); border-radius: 8px;">
+        <h4 style="font-family: var(--font-display); color: var(--navy); margin-bottom: 12px;">04 · Advisory Services Only</h4>
+        <p style="font-size: 14px;">On-demand access to strategic advisory on an hourly basis. For targeted questions or executives needing outside perspective.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Not sure where you are in the process?</h2>
+    <p>We start with a conversation to determine fit. The Diagnostics gives you the clearest picture of what's actually driving the gap.</p>
+    <div style="margin-top: 36px;">
+      <button class="btn-primary" onclick="showPage('contact')">Request a Conversation →</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- PAGE: DIAGNOSTICS -->
+<div id="page-diagnostics" class="page">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-eyebrow">Pharos Gap Diagnostics™</div>
+      <h1>See your organization <em>as it actually is.</em></h1>
+      <p class="hero-sub">The Pharos Gap Diagnostics is a structured intelligence assessment that reveals the gap between your official narrative and organizational reality.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('contact')">Request a Conversation →</button>
+        <button class="btn-secondary" onclick="showPage('services')">View Full Pharos Method</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div>
+        <div class="section-eyebrow">What It Is</div>
+        <h2>Not a survey. Not a framework. An intelligence assessment.</h2>
+        <p>Most organizational diagnostics ask people what they think. The Pharos Gap Diagnostics is designed to surface what the organization actually shows — through behavioral patterns, decision flows, and the gaps between what leadership hears and what's actually happening.</p>
+      </div>
+      <div>
+        <h3>What We Uncover</h3>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-label">01</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">The Real Decision Architecture</h4>
+          <p style="margin: 0; font-size: 14px;">Who actually makes decisions in your organization and whether that matches the org chart.</p>
+        </div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-label">02</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">The Information Gap</h4>
+          <p style="margin: 0; font-size: 14px;">Whether leadership is receiving accurate intelligence or a filtered version.</p>
+        </div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-label">03</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">The Execution Blockers</h4>
+          <p style="margin: 0; font-size: 14px;">The specific cultural and human factors slowing implementation.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">04</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">The Path Forward</h4>
+          <p style="margin: 0; font-size: 14px;">A clear picture of where you are and what comes next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">How It Works</div>
+    <h2>Three steps from inquiry to insight.</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;">
+      <div style="background: var(--off-white); padding: 36px 32px; border-radius: 8px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); margin-bottom: 16px;">STEP 01</div>
+        <h3>The Fit Conversation</h3>
+        <p style="font-size: 14px;">We start with a conversation to determine whether EnhanceGov is the right match and whether you're ready to hear what the Diagnostics will surface.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 36px 32px; border-radius: 8px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); margin-bottom: 16px;">STEP 02</div>
+        <h3>The Diagnostics Engagement</h3>
+        <p style="font-size: 14px;">Conducted as a paid engagement, combining structured interviews, behavioral observation, and document review.</p>
+      </div>
+      <div style="background: var(--off-white); padding: 36px 32px; border-radius: 8px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--green); margin-bottom: 16px;">STEP 03</div>
+        <h3>The Intelligence Brief</h3>
+        <p style="font-size: 14px;">You receive a clear findings brief: what we observed, what it means, and what we recommend next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--navy-dark); color: var(--white); padding: 100px 5%;">
+    <div class="grid" style="grid-template-columns: 1fr 1.1fr;">
+      <div>
+        <div class="section-eyebrow" style="color: var(--green);">Engage Now</div>
+        <h2 style="color: var(--white);">Request a Discovery Conversation</h2>
+        <p style="color: rgba(255,255,255,0.6);">Fill out the form to begin a personal engagement. We'll reach out within 24 hours to schedule a discovery call.</p>
+      </div>
+      <div>
+        <form style="max-width: 100%;">
+          <input type="text" placeholder="First Name" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: var(--white);">
+          <input type="text" placeholder="Last Name" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: var(--white);">
+          <input type="text" placeholder="Organization" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: var(--white);">
+          <input type="email" placeholder="Email" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: var(--white);">
+          <textarea placeholder="What's the gap you're trying to close?" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: var(--white);"></textarea>
+          <button class="btn-primary">Request a Conversation →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- PAGE: INSIGHTS -->
+<div id="page-insights" class="page">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-eyebrow">Thought Leadership</div>
+      <h1>The Governance Illusion — <em>and other uncomfortable truths.</em></h1>
+      <p class="hero-sub">Ideas on organizational intelligence, decision culture, and what leaders need to see before it's too late.</p>
+    </div>
+  </section>
+
+  <section>
+    <div style="background: var(--white); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(27,42,94,0.1);">
+      <div style="background: var(--navy-dark); padding: 64px 48px; display: flex; align-items: center; justify-content: center; min-height: 360px;">
+        <div style="font-family: var(--font-display); font-size: 22px; color: var(--white); font-style: italic; line-height: 1.5; text-align: center;">"Governance documentation is the map.<br>Culture is <em style="color: var(--green); font-style: normal; font-weight: 700;">the territory.</em>"</div>
+      </div>
+      <div style="padding: 56px 48px;">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 16px;">Featured Article · Latest</div>
+        <h2>The Governance Illusion: Wreckage Is Always Visible — Long Before the Crisis Hits</h2>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--gray-500); margin-bottom: 20px;">Feb 19, 2026 · Stephanie Fitzpatrick</div>
+        <p>By the time a governance failure makes headlines, the warning signs were everywhere. They just weren't in the places leaders thought to look. This article examines the gap between governance documentation and organizational reality — and what intelligence-trained analysis reveals that traditional consulting misses.</p>
+        <a href="https://www.linkedin.com/pulse/governance-illusion-wreckage-always-visible-long-hits-fitzpatrick-devfe/" style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); border: 1px solid var(--gray-300); padding: 12px 20px; border-radius: 4px; text-decoration: none;">Read Full Article on LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--navy-dark); color: var(--white);">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 8px; overflow: hidden;">
+      <div style="padding: 64px 56px;">
+        <div class="section-eyebrow" style="color: var(--green);">More Coming</div>
+        <h2 style="color: var(--white);">Don't miss the next uncomfortable truth.</h2>
+        <p style="color: rgba(255,255,255,0.6);">New articles on organizational intelligence, decision culture, and what leaders need to see — delivered directly to your inbox.</p>
+        <ul style="list-style: none; margin-top: 28px;">
+          <li style="font-size: 13px; color: rgba(255,255,255,0.5); font-style: italic; font-family: var(--font-display); margin-bottom: 12px;">— Why consultants leave and nothing changes</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.5); font-style: italic; font-family: var(--font-display); margin-bottom: 12px;">— Do people actually tell you the truth?</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.5); font-style: italic; font-family: var(--font-display);">— What CIA tradecraft reveals about organizational failure</li>
+        </ul>
+      </div>
+      <div style="background: var(--white); padding: 64px 56px;">
+        <h3>Get on the list.</h3>
+        <p style="color: var(--gray-500);">New articles delivered to your inbox. Unsubscribe anytime.</p>
+        <form style="max-width: 100%;">
+          <input type="text" placeholder="Your first name">
+          <input type="email" placeholder="you@yourorg.com">
+          <button class="btn-primary" style="width: 100%; margin-top: 8px;">Subscribe to Insights →</button>
+          <p style="font-size: 12px; color: var(--gray-500); margin-top: 16px; text-align: center;">No spam. No frequency commitments.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>These ideas resonate?</h2>
+    <p>They're not hypothetical. They come from decades of watching what actually happens in organizations.</p>
+    <div style="margin-top: 36px;">
+      <button class="btn-primary" onclick="showPage('contact')">Let's Talk →</button>
+      <button class="btn-secondary" onclick="showPage('services')" style="margin-left: 16px;">See the Method</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- PAGE: PLATFORM -->
+<div id="page-platform" class="page">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-eyebrow">Pharos Intelligence Platform™</div>
+      <h1>See where you were. See where you are. <em>See what's slipping.</em></h1>
+      <p class="hero-sub">The Pharos Gap Diagnostics as a licensed platform — giving your organization continuous intelligence on its own performance.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('contact')">Request License Pricing →</button>
+        <button class="btn-secondary" onclick="showPage('diagnostics')">Start with the Diagnostics</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div>
+        <div class="section-eyebrow">Why License It</div>
+        <h2>A one-time diagnostic tells you where you are. <em>A license tells you whether you're moving.</em></h2>
+        <p>Most organizational assessments are events. You get a report, build a roadmap, and six months later you're not sure if anything actually changed.</p>
+        <p>The Pharos Intelligence Platform changes that. Your organization runs recurring pulse assessments against its own baseline. You see trend lines, not just snapshots.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-label">What It Tracks · 01</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">Organizational Health Over Time</h4>
+          <p style="margin: 0; font-size: 14px;">Trend data across key intelligence dimensions measured against your own baseline.</p>
+        </div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-label">What It Tracks · 02</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">Where Progress Is Slipping</h4>
+          <p style="margin: 0; font-size: 14px;">Flags dimensions where scores are declining — giving leadership early warning.</p>
+        </div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-label">What It Tracks · 03</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">ROI of Prior Engagements</h4>
+          <p style="margin: 0; font-size: 14px;">Before-and-after comparisons with measurable delta reports your board can review.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">What It Tracks · 04</div>
+          <h4 style="margin: 0 0 8px 0; font-size: 16px;">Team & Division Segmentation</h4>
+          <p style="margin: 0; font-size: 14px;">Breakdowns by team or function showing exactly where gaps are concentrated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">License Tiers</div>
+    <h2>Three tiers. One methodology. Scaled to your organization.</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px;">
+      <div style="background: rgba(255,255,255,0.04); padding: 48px 36px; border-top: 3px solid transparent;">
+        <h3 style="color: var(--white); font-size: 26px;">Essentials</h3>
+        <p style="color: rgba(255,255,255,0.4); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; margin-bottom: 28px;">Organizations up to 100 people</p>
+        <div style="color: var(--green); font-family: var(--font-display); font-size: 42px; font-weight: 900;">$6–9K</div>
+        <p style="color: rgba(255,255,255,0.45); font-family: var(--font-mono); margin-top: 4px; font-size: 13px;">per year · flat fee</p>
+      </div>
+      <div style="background: rgba(127,215,88,0.08); padding: 48px 36px; border-top: 3px solid var(--green);">
+        <div style="display: inline-block; background: var(--green); color: var(--navy-dark); padding: 4px 10px; border-radius: 2px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; margin-bottom: 20px;">Most Popular</div>
+        <h3 style="color: var(--white); font-size: 26px;">Professional</h3>
+        <p style="color: rgba(255,255,255,0.4); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; margin-bottom: 28px;">Organizations 100–500 people</p>
+        <div style="color: var(--green); font-family: var(--font-display); font-size: 42px; font-weight: 900;">$12–18K</div>
+        <p style="color: rgba(255,255,255,0.45); font-family: var(--font-mono); margin-top: 4px; font-size: 13px;">per year</p>
+      </div>
+      <div style="background: rgba(255,255,255,0.04); padding: 48px 36px; border-top: 3px solid transparent;">
+        <h3 style="color: var(--white); font-size: 26px;">Enterprise</h3>
+        <p style="color: rgba(255,255,255,0.4); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; margin-bottom: 28px;">Organizations 500+ people</p>
+        <div style="color: var(--green); font-family: var(--font-display); font-size: 42px; font-weight: 900;">$22–40K+</div>
+        <p style="color: rgba(255,255,255,0.45); font-family: var(--font-mono); margin-top: 4px; font-size: 13px;">per year · custom</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to move from assessment to insight?</h2>
+    <p>Request pricing and we'll help you find the tier that makes sense for your organization's size and strategy.</p>
+    <div style="margin-top: 36px;">
+      <button class="btn-primary" onclick="showPage('contact')">Request License Pricing →</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- PAGE: CONTACT -->
+<div id="page-contact" class="page">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-eyebrow">Start the Conversation</div>
+      <h1>Let's find out if <em>we're the right fit.</em></h1>
+      <p class="hero-sub">Every engagement begins with a discovery conversation — not a sales call. We determine fit together, then move forward from there.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div>
+        <div class="section-eyebrow">Is This for You?</div>
+        <h3>You might be ready if any of these sound familiar:</h3>
+        <div class="card" style="margin-top: 24px; margin-bottom: 16px;">
+          <div class="card-label">Pattern 01</div>
+          <p style="margin: 0; font-size: 14px;">"We have great data but can't seem to act on it."</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <div class="card-label">Pattern 02</div>
+          <p style="margin: 0; font-size: 14px;">"The last consulting engagement gave us a roadmap we never used."</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <div class="card-label">Pattern 03</div>
+          <p style="margin: 0; font-size: 14px;">"I don't think people are telling me the whole truth."</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Pattern 04</div>
+          <p style="margin: 0; font-size: 14px;">"We reorganized twice and the same problems keep surfacing."</p>
+        </div>
+      </div>
+      <div>
+        <h3>Request a Discovery Conversation</h3>
+        <form>
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name">
+          <input type="text" placeholder="Organization">
+          <input type="text" placeholder="Your Role">
+          <input type="email" placeholder="Email">
+          <textarea placeholder="What's the gap you're trying to close?"></textarea>
+          <button class="btn-primary">Request a Discovery Conversation →</button>
+          <p style="font-size: 12px; color: var(--gray-500); text-align: center;">I respond to every inquiry personally, usually within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>EnhanceGov LLC</strong>Organizational Intelligence & Strategic Advisory · Norfolk, VA</div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('diagnostics')">Diagnostics</a>
+        <a onclick="showPage('platform')">Platform</a>
+        <a onclick="showPage('insights')">Insights</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 EnhanceGov LLC · All rights reserved</div>
+  </footer>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
+      a.classList.toggle('active', a.dataset.page === id);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  // Scroll reveal effect
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

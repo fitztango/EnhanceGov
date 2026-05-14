@@ -3140,19 +3140,19 @@
 
     if (loading) loading.style.display = 'block';
 
-    fetch('/articles.json?v=' + Date.now())
+    fetch('/articles.json')
       .then(function(res) {
         if (!res.ok) throw new Error('not found');
         return res.json();
       })
       .then(function(articles) {
         if (loading) loading.style.display = 'none';
-        if (!Array.isArray(articles) || articles.length === 0) {
-          if (empty) empty.style.display = 'block';
-          return;
-        }
+        if (!Array.isArray(articles)) { if (empty) empty.style.display = 'block'; return; }
+        // Filter out any entries missing required fields (e.g. readme/template objects)
+        var valid = articles.filter(function(a) { return a.title && a.url; });
+        if (valid.length === 0) { if (empty) empty.style.display = 'block'; return; }
         if (empty) empty.style.display = 'none';
-        grid.innerHTML = articles.map(function(a) {
+        grid.innerHTML = valid.map(function(a) {
           return '<div class="dyn-article-card">' +
             '<div class="dyn-article-card-header ' + sourceClass(a.source) + '">' +
               '<span class="dyn-article-source-badge">' + (a.source || 'Article') + (a.tag ? ' &middot; ' + a.tag : '') + '</span>' +

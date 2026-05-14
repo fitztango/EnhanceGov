@@ -1,0 +1,52 @@
+# How to Add an Article to the Insights Page
+
+Edit `articles.json` in GitHub to add, remove, or reorder articles.
+Netlify deploys automatically within ~30 seconds of each commit.
+
+---
+
+## Adding an article
+
+1. Go to your GitHub repo and open `articles.json`
+2. Click the pencil icon (Edit this file)
+3. Copy the block below and paste it **at the top of the array**, right after the opening `[`
+4. Fill in your details
+5. Click **Commit changes**
+
+```json
+{
+  "title": "Your article title as published",
+  "url": "https://www.linkedin.com/pulse/your-article-url",
+  "source": "LinkedIn",
+  "date": "May 2026",
+  "excerpt": "One or two sentences summarising the article.",
+  "tag": "Data Governance"
+},
+```
+
+> **Note:** Every entry except the last one needs a comma after the closing `}`.
+
+---
+
+## Field reference
+
+| Field     | Required | Notes                                              |
+|-----------|----------|----------------------------------------------------|
+| `title`   | Yes      | The article title as it appears on LinkedIn        |
+| `url`     | Yes      | Full URL including `https://`                      |
+| `source`  | No       | `LinkedIn`, `Published`, `Article`, or `Other`     |
+| `date`    | No       | Free text — e.g. `May 2026` or `Feb 19, 2026`     |
+| `excerpt` | No       | Short description shown under the title on the card |
+| `tag`     | No       | Topic label — e.g. `Organizational Intelligence`   |
+
+---
+
+## Removing an article
+
+Delete its entire `{ ... }` block from the array. Make sure no trailing comma
+is left on the entry above it.
+
+## Reordering articles
+
+Articles display in the order they appear in the file — top of the array
+shows first on the page. Cut and paste entries to reorder.

@@ -1127,6 +1127,95 @@
     .tool-card-visual { padding: 40px 28px; min-height: 160px; }
   }
 
+
+  /* ══════════════════════════════════════════
+     INSIGHTS — PUBLISHED ARTICLES
+  ═══════════════════════════════════════════ */
+  .insights-articles-section {
+    padding: 0 5% 80px;
+    background: var(--off-white);
+  }
+  .insights-articles-header {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; flex-wrap: wrap;
+    gap: 16px; padding: 56px 0 32px;
+    border-top: 1px solid rgba(27,42,94,0.08);
+  }
+  .insights-articles-header h3 {
+    font-family: var(--font-display); font-size: 26px;
+    font-weight: 700; color: var(--navy); margin-top: 8px;
+  }
+  .insights-github-note {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; color: var(--gray-500);
+  }
+  .insights-github-note code {
+    background: var(--gray-100); color: var(--navy);
+    padding: 2px 6px; border-radius: 3px; font-size: 10px;
+  }
+  .articles-empty-state {
+    padding: 48px 40px; text-align: center;
+    background: var(--white); border-radius: 8px;
+    border: 1px dashed var(--gray-300); display: none;
+  }
+  .articles-empty-state p {
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 0.06em; color: var(--gray-500); line-height: 1.7;
+  }
+  .articles-loading {
+    padding: 40px; text-align: center;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; color: var(--gray-500); display: none;
+  }
+  #dynamic-articles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .dyn-article-card {
+    background: var(--white); border-radius: 8px;
+    overflow: hidden; box-shadow: 0 2px 12px rgba(27,42,94,0.06);
+    transition: var(--transition); display: flex; flex-direction: column;
+  }
+  .dyn-article-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(27,42,94,0.12); }
+  .dyn-article-card-header {
+    background: var(--navy); padding: 32px 28px 20px;
+    min-height: 130px; display: flex; flex-direction: column;
+    justify-content: space-between; position: relative;
+  }
+  .dyn-article-card-header.source-linkedin { background: var(--navy-mid); }
+  .dyn-article-card-header.source-other    { background: var(--navy-dark); }
+  .dyn-article-source-badge {
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(127,215,88,0.75);
+  }
+  .dyn-article-source-mark {
+    font-family: var(--font-display); font-size: 38px; font-weight: 900;
+    color: rgba(255,255,255,0.08); line-height: 1; align-self: flex-end;
+  }
+  .dyn-article-card-body { padding: 24px 28px; flex: 1; }
+  .dyn-article-card-title {
+    font-family: var(--font-display); font-size: 17px;
+    font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 10px;
+  }
+  .dyn-article-card-excerpt { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+  .dyn-article-card-footer {
+    padding: 0 28px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .dyn-article-card-meta {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.06em; color: var(--gray-500);
+  }
+  .btn-read-article {
+    font-size: 12px; font-weight: 600; font-family: var(--font-mono);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--navy); cursor: pointer; border: none;
+    background: none; padding: 0; transition: var(--transition);
+    text-decoration: none; display: inline-block;
+  }
+  .btn-read-article:hover { color: var(--green); }
+  @media (max-width: 960px) { #dynamic-articles-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 640px) { #dynamic-articles-grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
@@ -1983,6 +2072,22 @@
         <p>By the time a governance failure makes headlines, the warning signs were everywhere. They just weren&rsquo;t in the places leaders thought to look. This article examines the gap between governance documentation and organizational reality &mdash; and what intelligence-trained analysis reveals that traditional consulting misses.</p>
         <a class="btn-article-featured" href="https://www.linkedin.com/pulse/governance-illusion-wreckage-always-visible-long-hits-fitzpatrick-devfe" target="_blank" rel="noopener noreferrer">Read Full Article on LinkedIn &rarr;</a>
       </div>
+    </div>
+
+    <!-- ── PUBLISHED ARTICLES ─────────────────── -->
+    <div class="insights-articles-section">
+      <div class="insights-articles-header">
+        <div>
+          <div class="section-eyebrow">Published Articles</div>
+          <h3>More from Stephanie</h3>
+        </div>
+        <span class="insights-github-note">Managed via <code>articles.json</code> in GitHub</span>
+      </div>
+      <div id="articles-loading" class="articles-loading">Loading articles&hellip;</div>
+      <div id="articles-empty-state" class="articles-empty-state">
+        <p>No articles yet &mdash; add entries to <code>articles.json</code> in your GitHub repo.</p>
+      </div>
+      <div id="dynamic-articles-grid"></div>
     </div>
 
     <div class="mailing-list-section reveal">
@@ -2914,6 +3019,7 @@
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(initReveal, 100);
+    if (id === 'insights') setTimeout(renderArticles, 50);
   }
 
   function initReveal() {
@@ -3011,6 +3117,71 @@
     }
   }
 
+
+  // ── PUBLISHED ARTICLES (articles.json) ───────────────
+  function sourceClass(src) {
+    if (!src) return '';
+    if (src.toLowerCase() === 'linkedin') return 'source-linkedin';
+    if (src.toLowerCase() === 'published') return 'source-published';
+    return 'source-other';
+  }
+
+  function sourceMark(src) {
+    if (!src) return 'A';
+    if (src.toLowerCase() === 'linkedin') return 'in';
+    return src.charAt(0).toUpperCase();
+  }
+
+  function renderArticles() {
+    const grid    = document.getElementById('dynamic-articles-grid');
+    const empty   = document.getElementById('articles-empty-state');
+    const loading = document.getElementById('articles-loading');
+    if (!grid) return;
+
+    if (loading) loading.style.display = 'block';
+
+    fetch('/articles.json?v=' + Date.now())
+      .then(function(res) {
+        if (!res.ok) throw new Error('not found');
+        return res.json();
+      })
+      .then(function(articles) {
+        if (loading) loading.style.display = 'none';
+        if (!Array.isArray(articles) || articles.length === 0) {
+          if (empty) empty.style.display = 'block';
+          return;
+        }
+        if (empty) empty.style.display = 'none';
+        grid.innerHTML = articles.map(function(a) {
+          return '<div class="dyn-article-card">' +
+            '<div class="dyn-article-card-header ' + sourceClass(a.source) + '">' +
+              '<span class="dyn-article-source-badge">' + (a.source || 'Article') + (a.tag ? ' &middot; ' + a.tag : '') + '</span>' +
+              '<span class="dyn-article-source-mark">' + sourceMark(a.source) + '</span>' +
+            '</div>' +
+            '<div class="dyn-article-card-body">' +
+              '<div class="dyn-article-card-title">' + a.title + '</div>' +
+              (a.excerpt ? '<div class="dyn-article-card-excerpt">' + a.excerpt + '</div>' : '') +
+            '</div>' +
+            '<div class="dyn-article-card-footer">' +
+              '<span class="dyn-article-card-meta">' + (a.date || '') + '</span>' +
+              '<a class="btn-read-article" href="' + a.url + '" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+      })
+      .catch(function() {
+        if (loading) loading.style.display = 'none';
+        if (empty) empty.style.display = 'block';
+      });
+  }
+
+  // Render articles when Insights tab is opened
+  document.addEventListener('DOMContentLoaded', function() {
+    var insightsPage = document.getElementById('page-insights');
+    if (insightsPage && insightsPage.classList.contains('active')) renderArticles();
+  });
+
 </script>
+
 </body>
 </html>

@@ -3136,20 +3136,26 @@
     const grid    = document.getElementById('dynamic-articles-grid');
     const empty   = document.getElementById('articles-empty-state');
     const loading = document.getElementById('articles-loading');
+    console.log('[Articles] renderArticles called. grid found:', !!grid);
     if (!grid) return;
 
     if (loading) loading.style.display = 'block';
 
     fetch('/articles.json')
       .then(function(res) {
-        if (!res.ok) throw new Error('not found');
+        console.log('[Articles] fetch status:', res.status, 'ok:', res.ok);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();
       })
       .then(function(articles) {
+        console.log('[Articles] parsed JSON:', articles);
         if (loading) loading.style.display = 'none';
-        if (!Array.isArray(articles)) { if (empty) empty.style.display = 'block'; return; }
-        // Filter out any entries missing required fields (e.g. readme/template objects)
+        if (!Array.isArray(articles)) {
+          console.log('[Articles] not an array');
+          if (empty) empty.style.display = 'block'; return;
+        }
         var valid = articles.filter(function(a) { return a.title && a.url; });
+        console.log('[Articles] valid entries:', valid.length);
         if (valid.length === 0) { if (empty) empty.style.display = 'block'; return; }
         if (empty) empty.style.display = 'none';
         grid.innerHTML = valid.map(function(a) {
@@ -3168,8 +3174,10 @@
             '</div>' +
           '</div>';
         }).join('');
+        console.log('[Articles] grid HTML set, cards:', valid.length);
       })
-      .catch(function() {
+      .catch(function(err) {
+        console.log('[Articles] fetch error:', err);
         if (loading) loading.style.display = 'none';
         if (empty) empty.style.display = 'block';
       });

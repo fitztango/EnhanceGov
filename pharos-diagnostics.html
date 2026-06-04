@@ -10,7 +10,7 @@
   <style>
     /* ══════════════════════════════════════════
        PHAROS DIAGNOSTICS
-    ═══════════════════════════════════════════ */
+     ═══════════════════════════════════════════ */
     .diag-hero {
       background: var(--navy-dark); padding: 120px 5% 80px;
       min-height: 70vh; display: flex; align-items: center;
@@ -42,21 +42,35 @@
       letter-spacing: 0.15em; text-transform: uppercase; color: var(--green);
     }
     .diag-what-section { padding: 100px 5%; background: var(--white); }
-    .diag-what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .diag-what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .diag-what-left { display: flex; flex-direction: column; gap: 24px; }
     .diag-what-left h2 {
       font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 900; color: var(--navy); line-height: 1.15; margin-bottom: 24px;
+      font-weight: 900; color: var(--navy); line-height: 1.15; margin: 0;
     }
-    .diag-what-left p { font-size: 16px; color: var(--gray-500); line-height: 1.85; margin-bottom: 20px; }
-    .diag-what-right { display: flex; flex-direction: column; gap: 20px; }
-    .diag-reveal-card {
-      background: var(--off-white); padding: 28px 32px;
-      border-radius: 6px;
-      border-left: 3px solid var(--green);
+    .diag-what-left p { font-size: 16px; color: var(--gray-500); line-height: 1.85; margin: 0; }
+    .diag-video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--off-white);
     }
-    .diag-reveal-card-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; color: var(--green); margin-bottom: 8px; }
-    .diag-reveal-card-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .diag-reveal-card p { font-size: 14px; color: var(--gray-500); line-height: 1.7; margin: 0; }
+    .diag-video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .diag-what-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
     .diag-process-section { padding: 100px 5%; background: var(--off-white); }
     .diag-process-header { max-width: 580px; margin-bottom: 60px; }
     .diag-process-header p { font-size: 16px; color: var(--gray-500); line-height: 1.8; }
@@ -99,6 +113,7 @@
     }
     @media (max-width: 640px) {
       .diag-process-steps { grid-template-columns: 1fr; }
+      .diag-what-buttons { flex-direction: column; }
     }
   </style>
 </head>
@@ -131,7 +146,7 @@
     <div class="diag-hero-content">
       <div class="diag-coming-soon-badge">
         <div class="badge-dot"></div>
-        <span>Launching Soon</span>
+        <span>Now Available</span>
       </div>
       <div class="hero-eyebrow">Strategic Framework</div>
       <h1>PHAROS <em>Diagnostics</em>: Deep Organizational Intelligence</h1>
@@ -145,34 +160,14 @@
       <div class="diag-what-left">
         <div class="section-eyebrow">About PHAROS</div>
         <h2>Five dimensions of organizational intelligence</h2>
-        <p>PHAROS Diagnostics assesses your organization across five integrated dimensions—Perception, Hypothesis, Alignment, Roadmap, and Orchestration—to build a comprehensive understanding of your transformation readiness and potential.</p>
+        <p>PHAROS Diagnostics assesses your organization across five integrated dimensions—Perception, Hypothesis, Alignment, Roadmap, and Orchestration—to build a comprehensive understanding of your transformation readiness and create actionable pathways forward.</p>
+        <div class="diag-what-buttons">
+          <a href="https://pharos.enhancegov.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Visit Pharos</a>
+          <a href="./contact.html" class="btn-secondary">Schedule Consultation</a>
+        </div>
       </div>
-      <div class="diag-what-right">
-        <div class="diag-reveal-card">
-          <div class="diag-reveal-card-num">01 — PERCEPTION</div>
-          <div class="diag-reveal-card-title">Organizational Assessment</div>
-          <p>Deep analysis of structure, capabilities, culture, and stakeholder dynamics that shape transformation readiness.</p>
-        </div>
-        <div class="diag-reveal-card">
-          <div class="diag-reveal-card-num">02 — HYPOTHESIS</div>
-          <div class="diag-reveal-card-title">Strategic Clarity</div>
-          <p>Evidence-based hypothesis development testing your strategic assumptions against organizational reality.</p>
-        </div>
-        <div class="diag-reveal-card">
-          <div class="diag-reveal-card-num">03 — ALIGNMENT</div>
-          <div class="diag-reveal-card-title">Stakeholder Readiness</div>
-          <p>Assessment of stakeholder alignment, change readiness, and organizational appetite for transformation.</p>
-        </div>
-        <div class="diag-reveal-card">
-          <div class="diag-reveal-card-num">04 — ROADMAP</div>
-          <div class="diag-reveal-card-title">Implementation Planning</div>
-          <p>Strategic roadmap development with resource optimization, risk mitigation, and success metrics.</p>
-        </div>
-        <div class="diag-reveal-card">
-          <div class="diag-reveal-card-num">05 — ORCHESTRATION</div>
-          <div class="diag-reveal-card-title">Execution Strategy</div>
-          <p>Adaptive execution framework with continuous stakeholder engagement and sustained value delivery.</p>
-        </div>
+      <div class="diag-video-container">
+        <iframe src="https://player.vimeo.com/video/1197820049?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Pharos_Diagnostics_Organizational_Intelligence_Demo_with_captions"></iframe>
       </div>
     </div>
   </section>

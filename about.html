@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About EnhanceGov — Our Story & Values</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════ */
+    .about-hero {
+      background: var(--navy-dark); padding: 120px 5% 80px;
+      min-height: 60vh; display: flex; align-items: flex-end;
+      position: relative; overflow: hidden;
+    }
+    .about-hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .about-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 66px);
+      font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .about-hero h1 em { color: var(--green); font-style: italic; }
+    .about-hero p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 580px; }
+    .bio-section { background: var(--white); padding: 100px 5%; }
+    .bio-grid { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
+    .bio-body p { font-size: 16px; color: var(--gray-500); line-height: 1.9; margin-bottom: 20px; }
+    .bio-body p strong { color: var(--navy); }
+    .bio-pull {
+      border-left: 3px solid var(--green);
+      padding: 24px 28px; margin: 40px 0;
+      background: var(--off-white);
+    }
+    .bio-pull p {
+      font-family: var(--font-display); font-size: 20px;
+      font-style: italic; color: var(--navy); line-height: 1.5; margin: 0;
+    }
+    .bio-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      background: var(--navy-dark); border-radius: 8px;
+      padding: 36px; margin-bottom: 24px;
+    }
+    .sidebar-card-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 24px; }
+    .credential-list { display: flex; flex-direction: column; gap: 16px; }
+    .credential-item { display: flex; gap: 12px; align-items: flex-start; }
+    .credential-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+    .credential-text { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .credential-text strong { display: block; color: var(--white); font-size: 14px; margin-bottom: 2px; }
+    .values-section { padding: 100px 5%; background: var(--off-white); }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .value-card { background: var(--white); padding: 36px 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(27,42,94,0.06); }
+    .value-num { font-family: var(--font-mono); font-size: 28px; font-weight: 500; color: var(--gray-300); margin-bottom: 16px; }
+    .value-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .value-desc { font-size: 14px; color: var(--gray-500); line-height: 1.8; }
+
+    @media (max-width: 960px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 48px; }
+      .bio-sidebar { position: static; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a class="nav-brand" href="./index.html">
+      <div class="nav-logo-mark">E</div>
+      <div class="nav-brand-text">
+        <div class="nav-brand-name">EnhanceGov</div>
+        <div class="nav-brand-sub">Strategic Advisory</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./platform.html">Platform</a>
+      <a href="./insights.html">Insights</a>
+      <a href="./sectors.html">Sectors</a>
+      <a href="./contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="about-hero-content">
+      <div class="hero-eyebrow">Our Story</div>
+      <h1>We help government agencies <em>think differently</em> about transformation</h1>
+      <p>Founded on the principle that organizational intelligence is the foundation of transformational success, EnhanceGov brings strategic clarity to complex government challenges.</p>
+    </div>
+  </section>
+
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-body">
+        <p><strong>EnhanceGov was founded</strong> with a singular mission: to bring organizational intelligence and strategic clarity to government agencies navigating complex transformation challenges.</p>
+        
+        <p>Our founders recognized that most government transformation efforts fail not because of a lack of good ideas, but because of misalignment—between departments, between technology and people, between strategy and execution. This insight drove us to create a methodology that puts organizational intelligence at the center of government transformation.</p>
+
+        <div class="bio-pull">
+          <p>"The best strategy fails without organizational alignment. We build both."</p>
+        </div>
+
+        <p>Today, EnhanceGov advises leading federal agencies, cabinet departments, and government organizations across the United States. Our team combines deep government expertise, strategic advisory experience, and organizational psychology to deliver transformation that sticks.</p>
+
+        <p>We believe that government agencies deserve the same level of strategic excellence that the private sector demands. That's why we've built EnhanceGov to be a strategic partner that combines rigor, innovation, and a deep understanding of government dynamics.</p>
+      </div>
+
+      <aside class="bio-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Key Facts</div>
+          <div class="credential-list">
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <div class="credential-text">
+                <strong>Founded</strong>
+                2019
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <div class="credential-text">
+                <strong>Team Size</strong>
+                45+ advisors & strategists
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <div class="credential-text">
+                <strong>Clients</strong>
+                180+ Government Agencies
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <div class="credential-text">
+                <strong>Headquarters</strong>
+                Washington, DC
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="section-eyebrow" style="margin-left: 5%;">Core Values</div>
+    <h2 class="section-title" style="margin-left: 5%;">What drives us</h2>
+    <div class="values-grid" style="margin: 48px 5% 0;">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <div class="value-title">Organizational Intelligence</div>
+        <div class="value-desc">We believe that strategy without organizational alignment is just theory. We build both—strategy and the organizational capacity to execute it.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <div class="value-title">Government Expertise</div>
+        <div class="value-desc">We speak government. Our team has decades of experience inside government agencies, understanding political dynamics and bureaucratic realities.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <div class="value-title">Transformation That Sticks</div>
+        <div class="value-desc">We're not interested in one-time consulting engagements. We measure success by lasting organizational change and sustained value delivery.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Let's build organizational intelligence together</h2>
+    <p>Ready to explore how EnhanceGov can bring strategic clarity to your transformation goals?</p>
+    <div class="cta-actions">
+      <a href="./contact.html" class="btn-primary">Start a Conversation</a>
+      <a href="./services.html" class="btn-secondary">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>EnhanceGov LLC</strong>
+        Organizational Intelligence & Strategic Advisory for Government Agencies
+      </div>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./platform.html">Platform</a>
+        <a href="./insights.html">Insights</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 EnhanceGov LLC. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="./js/nav.js"></script>
+</body>
+</html>

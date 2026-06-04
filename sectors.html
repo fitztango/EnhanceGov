@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sectors — EnhanceGov Government Expertise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       SECTORS
+    ═══════════════════════════════════════════ */
+    .sectors-hero {
+      background: var(--navy-dark); padding: 120px 5% 80px;
+      min-height: 55vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .sectors-hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .sectors-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 62px);
+      font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .sectors-hero h1 em { color: var(--green); font-style: italic; }
+    .sectors-hero p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 580px; }
+
+    /* Sector tab bar */
+    .sector-nav-bar {
+      background: var(--navy);
+      padding: 0 5%;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(127,215,88,0.15);
+      overflow-x: auto;
+      scrollbar-width: none;
+      position: sticky; top: 112px; z-index: 90;
+    }
+    .sector-nav-bar::-webkit-scrollbar { display: none; }
+    .sector-tab {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: transparent; border: none;
+      padding: 18px 24px;
+      cursor: pointer; transition: var(--transition);
+      border-bottom: 3px solid transparent;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .sector-tab:hover { color: rgba(255,255,255,0.85); }
+    .sector-tab.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    .sector-content { padding: 80px 5%; background: var(--white); }
+    .sector-content-header { max-width: 640px; margin-bottom: 40px; }
+    .sector-content-header h2 {
+      font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900; color: var(--navy); line-height: 1.15; margin-bottom: 16px;
+    }
+    .sector-content-header p { font-size: 16px; color: var(--gray-500); line-height: 1.85; }
+    .sector-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .sector-highlight { background: var(--off-white); padding: 28px; border-radius: 6px; border-left: 3px solid var(--green); }
+    .sector-highlight-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .sector-highlight-desc { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+
+    @media (max-width: 960px) {
+      .sector-highlights { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .sector-tab { padding: 16px 18px; font-size: 12px; }
+      .sector-highlights { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a class="nav-brand" href="./index.html">
+      <div class="nav-logo-mark">E</div>
+      <div class="nav-brand-text">
+        <div class="nav-brand-name">EnhanceGov</div>
+        <div class="nav-brand-sub">Strategic Advisory</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./platform.html">Platform</a>
+      <a href="./insights.html">Insights</a>
+      <a href="./sectors.html">Sectors</a>
+      <a href="./contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Sectors Hero -->
+  <section class="sectors-hero">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="sectors-hero-content">
+      <div class="hero-eyebrow">Industry Expertise</div>
+      <h1>Sector-specific strategic <em>advisory</em></h1>
+      <p>Deep expertise across government sectors. We understand the unique challenges, regulations, and transformation imperatives of different government agencies.</p>
+    </div>
+  </section>
+
+  <!-- Sector Navigation -->
+  <nav class="sector-nav-bar">
+    <button class="sector-tab active" onclick="showSector('defense')">Defense</button>
+    <button class="sector-tab" onclick="showSector('civilian')">Civilian Agencies</button>
+    <button class="sector-tab" onclick="showSector('health')">Health & Human Services</button>
+    <button class="sector-tab" onclick="showSector('education')">Education</button>
+    <button class="sector-tab" onclick="showSector('homeland')">Homeland Security</button>
+  </nav>
+
+  <!-- Sector Content -->
+  <section class="sector-content">
+    <div id="defense" class="sector-item">
+      <div class="sector-content-header">
+        <div class="section-eyebrow">Defense Sector</div>
+        <h2>Strategic transformation for <em>defense</em> organizations</h2>
+        <p>The Department of Defense and related defense organizations face unique transformation challenges: legacy systems, complex stakeholder ecosystems, and rapid technological change. We bring deep DoD expertise to guide strategic clarity.</p>
+      </div>
+      <div class="sector-highlights">
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Modernization Strategy</div>
+          <div class="sector-highlight-desc">Navigate digital transformation while maintaining operational security and mission readiness.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Organizational Realignment</div>
+          <div class="sector-highlight-desc">Restructure for agility while preserving institutional knowledge and command authority.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Change at Scale</div>
+          <div class="sector-highlight-desc">Implement transformation across distributed, mission-critical organizations with complex stakeholder dynamics.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="civilian" class="sector-item" style="display:none;">
+      <div class="sector-content-header">
+        <div class="section-eyebrow">Civilian Agencies</div>
+        <h2>Strategic advisory for <em>civilian</em> government organizations</h2>
+        <p>From cabinet departments to independent agencies, civilian government organizations manage complex missions across diverse stakeholder bases. We help agencies clarify strategy and align execution.</p>
+      </div>
+      <div class="sector-highlights">
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Mission Clarity</div>
+          <div class="sector-highlight-desc">Define strategic direction aligned with evolving policy mandates and stakeholder expectations.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Cross-Agency Collaboration</div>
+          <div class="sector-highlight-desc">Build alignment across multiple departments and agencies with competing priorities.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Public Service Excellence</div>
+          <div class="sector-highlight-desc">Transform capabilities while maintaining commitment to constituent service and accountability.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="health" class="sector-item" style="display:none;">
+      <div class="sector-content-header">
+        <div class="section-eyebrow">Health & Human Services</div>
+        <h2>Transformation advisory for <em>health</em> agencies</h2>
+        <p>Health and human services agencies serve critical public missions while managing complex operational and regulatory environments. We help these organizations navigate transformation while maintaining mission delivery.</p>
+      </div>
+      <div class="sector-highlights">
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Service Delivery Innovation</div>
+          <div class="sector-highlight-desc">Transform service delivery models while maintaining quality and accessibility standards.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Regulatory Compliance</div>
+          <div class="sector-highlight-desc">Navigate transformation while maintaining strict regulatory and compliance requirements.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Stakeholder Engagement</div>
+          <div class="sector-highlight-desc">Build alignment across patients, providers, staff, and policy stakeholders during transformation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="education" class="sector-item" style="display:none;">
+      <div class="sector-content-header">
+        <div class="section-eyebrow">Education Sector</div>
+        <h2>Strategic advisory for <em>education</em> organizations</h2>
+        <p>Department of Education and related agencies support the nation's education mission through complex partnerships and initiatives. We help these organizations drive strategic transformation and measurable impact.</p>
+      </div>
+      <div class="sector-highlights">
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Strategic Planning</div>
+          <div class="sector-highlight-desc">Develop clear strategic direction aligned with education policy objectives and outcomes.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Partnership Alignment</div>
+          <div class="sector-highlight-desc">Build consensus across state, local, and private education stakeholders.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Impact Measurement</div>
+          <div class="sector-highlight-desc">Define and track meaningful outcomes that drive continuous improvement in education delivery.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="homeland" class="sector-item" style="display:none;">
+      <div class="sector-content-header">
+        <div class="section-eyebrow">Homeland Security</div>
+        <h2>Transformation advisory for <em>homeland security</em> agencies</h2>
+        <p>Homeland Security agencies manage complex, mission-critical operations with evolving threats and technologies. We help these organizations drive strategic transformation while maintaining operational readiness.</p>
+      </div>
+      <div class="sector-highlights">
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Operational Excellence</div>
+          <div class="sector-highlight-desc">Enhance capabilities and effectiveness while maintaining 24/7 operational readiness.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Technology Integration</div>
+          <div class="sector-highlight-desc">Navigate rapid technology change and digital transformation for mission-critical operations.</div>
+        </div>
+        <div class="sector-highlight">
+          <div class="sector-highlight-title">Interagency Coordination</div>
+          <div class="sector-highlight-desc">Build alignment across complex interagency networks and evolving threat environments.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Sector expertise meets strategic excellence</h2>
+    <p>Our team combines deep industry knowledge with strategic advisory expertise. Let's discuss how we can help your organization navigate transformation.</p>
+    <div class="cta-actions">
+      <a href="./contact.html" class="btn-primary">Schedule Consultation</a>
+      <a href="./services.html" class="btn-secondary">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>EnhanceGov LLC</strong>
+        Organizational Intelligence & Strategic Advisory for Government Agencies
+      </div>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./platform.html">Platform</a>
+        <a href="./insights.html">Insights</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 EnhanceGov LLC. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="./js/nav.js"></script>
+  <script>
+    function showSector(sector) {
+      // Hide all sectors
+      const items = document.querySelectorAll('.sector-item');
+      items.forEach(item => item.style.display = 'none');
+      
+      // Show selected sector
+      document.getElementById(sector).style.display = 'block';
+      
+      // Update active tab
+      const tabs = document.querySelectorAll('.sector-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

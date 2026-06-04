@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHAROS Diagnostics — Organizational Intelligence for Government</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       PHAROS DIAGNOSTICS
+    ═══════════════════════════════════════════ */
+    .diag-hero {
+      background: var(--navy-dark); padding: 120px 5% 80px;
+      min-height: 70vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .diag-hero-content { position: relative; z-index: 2; max-width: 760px; }
+    .diag-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: 24px;
+    }
+    .diag-hero h1 em { color: var(--green); font-style: italic; }
+    .diag-hero p { font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 36px; max-width: 600px; }
+    .diag-coming-soon-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(127,215,88,0.12); border: 1px solid rgba(127,215,88,0.35);
+      border-radius: 40px; padding: 10px 22px; margin-bottom: 36px;
+    }
+    .diag-coming-soon-badge .badge-dot {
+      width: 8px; height: 8px; background: var(--green);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .diag-coming-soon-badge span {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--green);
+    }
+    .diag-what-section { padding: 100px 5%; background: var(--white); }
+    .diag-what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .diag-what-left h2 {
+      font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900; color: var(--navy); line-height: 1.15; margin-bottom: 24px;
+    }
+    .diag-what-left p { font-size: 16px; color: var(--gray-500); line-height: 1.85; margin-bottom: 20px; }
+    .diag-what-right { display: flex; flex-direction: column; gap: 20px; }
+    .diag-reveal-card {
+      background: var(--off-white); padding: 28px 32px;
+      border-radius: 6px;
+      border-left: 3px solid var(--green);
+    }
+    .diag-reveal-card-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; color: var(--green); margin-bottom: 8px; }
+    .diag-reveal-card-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .diag-reveal-card p { font-size: 14px; color: var(--gray-500); line-height: 1.7; margin: 0; }
+    .diag-process-section { padding: 100px 5%; background: var(--off-white); }
+    .diag-process-header { max-width: 580px; margin-bottom: 60px; }
+    .diag-process-header p { font-size: 16px; color: var(--gray-500); line-height: 1.8; }
+    .diag-process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .diag-process-step { background: var(--white); padding: 40px 32px; position: relative; }
+    .diag-process-step-num {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.15em; color: var(--green); margin-bottom: 20px;
+    }
+    .diag-process-step-name {
+      font-family: var(--font-display); font-size: 20px;
+      font-weight: 700; color: var(--navy); margin-bottom: 12px;
+    }
+    .diag-process-step p { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+    .diag-cta-section {
+      background: var(--navy); padding: 100px 5%;
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 80px; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .diag-cta-left h2 {
+      font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900; color: var(--white); line-height: 1.2; margin-bottom: 20px;
+    }
+    .diag-cta-left h2 em { color: var(--green); font-style: italic; }
+    .diag-cta-left p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 32px; }
+    .diag-online-note {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(127,215,88,0.1); border: 1px solid rgba(127,215,88,0.25);
+      border-radius: 4px; padding: 14px 20px; margin-bottom: 32px;
+    }
+    .diag-online-note-icon { font-size: 18px; }
+    .diag-online-note-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .diag-online-note-text strong { display: block; color: var(--green); font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+
+    @media (max-width: 960px) {
+      .diag-what-grid { grid-template-columns: 1fr; gap: 48px; }
+      .diag-cta-section { grid-template-columns: 1fr; gap: 48px; }
+      .diag-process-steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .diag-process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a class="nav-brand" href="./index.html">
+      <div class="nav-logo-mark">E</div>
+      <div class="nav-brand-text">
+        <div class="nav-brand-name">EnhanceGov</div>
+        <div class="nav-brand-sub">Strategic Advisory</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./platform.html">Platform</a>
+      <a href="./insights.html">Insights</a>
+      <a href="./sectors.html">Sectors</a>
+      <a href="./contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PHAROS Hero -->
+  <section class="diag-hero">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="diag-hero-content">
+      <div class="diag-coming-soon-badge">
+        <div class="badge-dot"></div>
+        <span>Launching Soon</span>
+      </div>
+      <div class="hero-eyebrow">Strategic Framework</div>
+      <h1>PHAROS <em>Diagnostics</em>: Deep Organizational Intelligence</h1>
+      <p>Comprehensive organizational assessment designed specifically for government agencies. Understand your transformation readiness, identify barriers, and build a clear roadmap forward.</p>
+    </div>
+  </section>
+
+  <!-- What is PHAROS -->
+  <section class="diag-what-section">
+    <div class="diag-what-grid">
+      <div class="diag-what-left">
+        <div class="section-eyebrow">About PHAROS</div>
+        <h2>Five dimensions of organizational intelligence</h2>
+        <p>PHAROS Diagnostics assesses your organization across five integrated dimensions—Perception, Hypothesis, Alignment, Roadmap, and Orchestration—to build a comprehensive understanding of your transformation readiness and potential.</p>
+      </div>
+      <div class="diag-what-right">
+        <div class="diag-reveal-card">
+          <div class="diag-reveal-card-num">01 — PERCEPTION</div>
+          <div class="diag-reveal-card-title">Organizational Assessment</div>
+          <p>Deep analysis of structure, capabilities, culture, and stakeholder dynamics that shape transformation readiness.</p>
+        </div>
+        <div class="diag-reveal-card">
+          <div class="diag-reveal-card-num">02 — HYPOTHESIS</div>
+          <div class="diag-reveal-card-title">Strategic Clarity</div>
+          <p>Evidence-based hypothesis development testing your strategic assumptions against organizational reality.</p>
+        </div>
+        <div class="diag-reveal-card">
+          <div class="diag-reveal-card-num">03 — ALIGNMENT</div>
+          <div class="diag-reveal-card-title">Stakeholder Readiness</div>
+          <p>Assessment of stakeholder alignment, change readiness, and organizational appetite for transformation.</p>
+        </div>
+        <div class="diag-reveal-card">
+          <div class="diag-reveal-card-num">04 — ROADMAP</div>
+          <div class="diag-reveal-card-title">Implementation Planning</div>
+          <p>Strategic roadmap development with resource optimization, risk mitigation, and success metrics.</p>
+        </div>
+        <div class="diag-reveal-card">
+          <div class="diag-reveal-card-num">05 — ORCHESTRATION</div>
+          <div class="diag-reveal-card-title">Execution Strategy</div>
+          <p>Adaptive execution framework with continuous stakeholder engagement and sustained value delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHAROS Process -->
+  <section class="diag-process-section">
+    <div class="diag-process-header">
+      <div class="section-eyebrow">The Process</div>
+      <h2>How PHAROS Diagnostics Works</h2>
+      <p>A structured, evidence-based approach designed to provide deep organizational intelligence while building internal capability and stakeholder alignment.</p>
+    </div>
+
+    <div class="diag-process-steps">
+      <div class="diag-process-step">
+        <div class="diag-process-step-num">PHASE 1</div>
+        <div class="diag-process-step-name">Scoping & Planning</div>
+        <p>Clarity on your transformation objectives, organizational scope, stakeholder mapping, and diagnostic approach customization.</p>
+      </div>
+      <div class="diag-process-step">
+        <div class="diag-process-step-num">PHASE 2</div>
+        <div class="diag-process-step-name">Intelligence Gathering</div>
+        <p>Comprehensive data collection through interviews, surveys, document analysis, and organizational observation across all five PHAROS dimensions.</p>
+      </div>
+      <div class="diag-process-step">
+        <div class="diag-process-step-num">PHASE 3</div>
+        <div class="diag-process-step-name">Analysis & Synthesis</div>
+        <p>Deep analysis, pattern identification, and development of actionable insights with strategic recommendations and implementation roadmap.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="diag-cta-section">
+    <div class="diag-cta-left">
+      <h2>Ready to unlock your organization's <em>transformation</em> potential?</h2>
+      <p>Schedule a consultation to learn more about PHAROS Diagnostics and how deep organizational intelligence can guide your transformation journey.</p>
+      <div class="diag-online-note">
+        <div class="diag-online-note-icon">💻</div>
+        <div class="diag-online-note-text">
+          <strong>Available Online & On-Site</strong>
+          Flexible delivery options to accommodate your organization's preferences and operational requirements.
+        </div>
+      </div>
+      <a href="./contact.html" class="btn-primary">Schedule Consultation</a>
+    </div>
+    <div>
+      <a href="./services.html" class="btn-secondary" style="display: block; margin-bottom: 20px; text-align: center;">Explore All Services</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>EnhanceGov LLC</strong>
+        Organizational Intelligence & Strategic Advisory for Government Agencies
+      </div>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./platform.html">Platform</a>
+        <a href="./insights.html">Insights</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 EnhanceGov LLC. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="./js/nav.js"></script>
+</body>
+</html>

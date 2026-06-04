@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — EnhanceGov Strategic Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════ */
+    .services-hero {
+      background: var(--navy-dark); padding: 120px 5% 80px;
+      min-height: 60vh; display: flex; align-items: flex-end;
+      position: relative; overflow: hidden;
+    }
+    .services-hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .services-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .services-hero h1 em { color: var(--green); font-style: italic; }
+    .services-hero p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .pharos-section { padding: 100px 5%; background: var(--white); }
+    .pharos-section-header { max-width: 640px; margin-bottom: 64px; }
+    .pharos-section-header p { font-size: 16px; color: var(--gray-500); line-height: 1.8; }
+    .pharos-steps { display: flex; flex-direction: column; gap: 2px; }
+    .pharos-step {
+      display: grid; grid-template-columns: 80px 1fr;
+      background: var(--off-white); transition: var(--transition);
+    }
+    .pharos-step:hover { background: var(--gray-100); }
+    .pharos-step.featured { background: var(--navy-dark); }
+    .pharos-step-num {
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+      color: var(--green); border-right: 1px solid rgba(127,215,88,0.15);
+    }
+    .pharos-step-body { padding: 36px 40px; }
+    .pharos-step-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .pharos-step-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .pharos-step.featured .pharos-step-name { color: var(--white); }
+    .pharos-step-desc { font-size: 15px; color: var(--gray-500); line-height: 1.8; max-width: 640px; }
+    .pharos-step.featured .pharos-step-desc { color: rgba(255,255,255,0.6); }
+    .pharos-note {
+      margin-top: 48px; padding: 28px 32px;
+      background: var(--off-white); border-left: 3px solid var(--green);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px; color: var(--navy); line-height: 1.7;
+    }
+    .pharos-note strong { color: var(--navy); }
+    .engagement-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; margin-bottom: 40px;
+    }
+    .engagement-card {
+      background: var(--off-white); padding: 36px 32px;
+      border-radius: 8px; border-top: 3px solid var(--green);
+    }
+    .engagement-card-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; color: var(--green); margin-bottom: 12px; }
+    .engagement-card-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .engagement-card-desc { font-size: 14px; color: var(--gray-500); line-height: 1.8; }
+    .pricing-cta-note {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: var(--navy-dark); padding: 32px 36px; border-radius: 8px;
+      color: var(--white);
+    }
+    .pricing-note-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .pricing-cta-note strong { display: block; font-size: 16px; color: var(--white); margin-bottom: 8px; }
+    .pricing-cta-note p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+
+    @media (max-width: 960px) {
+      .engagement-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .pharos-section-header { margin-bottom: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a class="nav-brand" href="./index.html">
+      <div class="nav-logo-mark">E</div>
+      <div class="nav-brand-text">
+        <div class="nav-brand-name">EnhanceGov</div>
+        <div class="nav-brand-sub">Strategic Advisory</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./platform.html">Platform</a>
+      <a href="./insights.html">Insights</a>
+      <a href="./sectors.html">Sectors</a>
+      <a href="./contact.html" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Services Hero -->
+  <section class="services-hero">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="services-hero-content">
+      <div class="hero-eyebrow">Strategic Advisory</div>
+      <h1>Services designed for <em>government transformation</em></h1>
+      <p>From organizational diagnostics to implementation support, we provide the strategic advisory needed to navigate complex government transformation.</p>
+    </div>
+  </section>
+
+  <!-- PHAROS Services -->
+  <section class="pharos-section">
+    <div class="pharos-section-header">
+      <div class="section-eyebrow">The PHAROS Framework</div>
+      <h2>Our core transformation services</h2>
+      <p>Five integrated strategic services that work together to unlock organizational potential and drive lasting transformation outcomes.</p>
+    </div>
+
+    <div class="pharos-steps">
+      <div class="pharos-step">
+        <div class="pharos-step-num">01</div>
+        <div class="pharos-step-body">
+          <div class="pharos-step-tag">Perception</div>
+          <div class="pharos-step-name">Organizational Diagnostics</div>
+          <div class="pharos-step-desc">Deep analysis of organizational structure, capabilities, culture, and stakeholder alignment to identify transformation opportunities and constraints.</div>
+        </div>
+      </div>
+      <div class="pharos-step">
+        <div class="pharos-step-num">02</div>
+        <div class="pharos-step-body">
+          <div class="pharos-step-tag">Hypothesis</div>
+          <div class="pharos-step-name">Strategic Planning & Roadmapping</div>
+          <div class="pharos-step-desc">Development of evidence-based strategic plans with detailed implementation roadmaps, resource optimization, and risk mitigation strategies.</div>
+        </div>
+      </div>
+      <div class="pharos-step">
+        <div class="pharos-step-num">03</div>
+        <div class="pharos-step-body">
+          <div class="pharos-step-tag">Alignment</div>
+          <div class="pharos-step-name">Stakeholder Alignment & Change Management</div>
+          <div class="pharos-step-desc">Building consensus across departments and leadership through structured dialogue, change management planning, and stakeholder engagement strategies.</div>
+        </div>
+      </div>
+      <div class="pharos-step">
+        <div class="pharos-step-num">04</div>
+        <div class="pharos-step-body">
+          <div class="pharos-step-tag">Roadmap</div>
+          <div class="pharos-step-name">Capability Building & Training</div>
+          <div class="pharos-step-desc">Development and delivery of customized training programs to build organizational capabilities and ensure successful adoption of new strategies and processes.</div>
+        </div>
+      </div>
+      <div class="pharos-step featured">
+        <div class="pharos-step-num">05</div>
+        <div class="pharos-step-body">
+          <div class="pharos-step-tag">Orchestration</div>
+          <div class="pharos-step-name">Implementation Support & Continuous Improvement</div>
+          <div class="pharos-step-desc">Ongoing advisory support during implementation with adaptive course correction, continuous stakeholder engagement, and sustained value delivery measurement.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pharos-note">
+      <strong>Custom Engagement Models:</strong> We work with you to determine the right engagement model—whether full-service transformation, targeted advisory, or embedded support. Most organizations combine multiple services to maximize value.
+    </div>
+  </section>
+
+  <!-- Engagement Types -->
+  <section class="pharos-section" style="background: var(--off-white);">
+    <div class="pharos-section-header">
+      <div class="section-eyebrow">Engagement Types</div>
+      <h2>Services scaled to your needs</h2>
+    </div>
+
+    <div class="engagement-grid">
+      <div class="engagement-card">
+        <div class="engagement-card-num">TYPE 01</div>
+        <div class="engagement-card-title">Strategic Advisory</div>
+        <div class="engagement-card-desc">Short-term advisory engagements focused on specific strategic challenges or opportunities. Perfect for rapid assessment and targeted recommendations.</div>
+      </div>
+      <div class="engagement-card">
+        <div class="engagement-card-num">TYPE 02</div>
+        <div class="engagement-card-title">Transformation Program</div>
+        <div class="engagement-card-desc">Multi-phase transformation engagements spanning 6-18 months with integrated services across organizational diagnostics, planning, and implementation support.</div>
+      </div>
+      <div class="engagement-card">
+        <div class="engagement-card-num">TYPE 03</div>
+        <div class="engagement-card-title">Embedded Advisory</div>
+        <div class="engagement-card-desc">Long-term embedded support where our advisors work alongside your team to build internal capabilities and ensure sustained transformation impact.</div>
+      </div>
+      <div class="engagement-card">
+        <div class="engagement-card-num">TYPE 04</div>
+        <div class="engagement-card-title">Sector-Specific Programs</div>
+        <div class="engagement-desc">Customized services designed for specific government sectors—defense, civilian agencies, healthcare, education—with deep industry expertise built in.</div>
+      </div>
+    </div>
+
+    <div class="pricing-cta-note">
+      <div class="pricing-note-icon">💡</div>
+      <div>
+        <strong>Ready to get started?</strong>
+        <p>Schedule a no-obligation consultation to discuss your transformation challenges and explore which engagement model is the right fit for your organization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Let's discuss your transformation goals</h2>
+    <p>Our team is ready to help you chart a path forward with strategic clarity and organizational alignment.</p>
+    <div class="cta-actions">
+      <a href="./contact.html" class="btn-primary">Schedule Consultation</a>
+      <a href="./pharos-diagnostics.html" class="btn-secondary">Learn About PHAROS</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>EnhanceGov LLC</strong>
+        Organizational Intelligence & Strategic Advisory for Government Agencies
+      </div>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./platform.html">Platform</a>
+        <a href="./insights.html">Insights</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 EnhanceGov LLC. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="./js/nav.js"></script>
+</body>
+</html>

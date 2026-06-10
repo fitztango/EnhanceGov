@@ -1,211 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About EnhanceGov — Our Story & Values</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <style>
-    /* ══════════════════════════════════════════
-       ABOUT
-    ═══════════════════════════════════════════ */
-    .about-hero {
-      background: var(--navy-dark); padding: 120px 5% 80px;
-      min-height: 60vh; display: flex; align-items: flex-end;
-      position: relative; overflow: hidden;
-    }
-    .about-hero-content { position: relative; z-index: 2; max-width: 700px; }
-    .about-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 5.5vw, 66px);
-      font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 20px;
-    }
-    .about-hero h1 em { color: var(--green); font-style: italic; }
-    .about-hero p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 580px; }
-    .bio-section { background: var(--white); padding: 100px 5%; }
-    .bio-grid { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
-    .bio-body p { font-size: 16px; color: var(--gray-500); line-height: 1.9; margin-bottom: 20px; }
-    .bio-body p strong { color: var(--navy); }
-    .bio-pull {
-      border-left: 3px solid var(--green);
-      padding: 24px 28px; margin: 40px 0;
-      background: var(--off-white);
-    }
-    .bio-pull p {
-      font-family: var(--font-display); font-size: 20px;
-      font-style: italic; color: var(--navy); line-height: 1.5; margin: 0;
-    }
-    .bio-sidebar { position: sticky; top: 90px; }
-    .sidebar-card {
-      background: var(--navy-dark); border-radius: 8px;
-      padding: 36px; margin-bottom: 24px;
-    }
-    .sidebar-card-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 24px; }
-    .credential-list { display: flex; flex-direction: column; gap: 16px; }
-    .credential-item { display: flex; gap: 12px; align-items: flex-start; }
-    .credential-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
-    .credential-text { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; }
-    .credential-text strong { display: block; color: var(--white); font-size: 14px; margin-bottom: 2px; }
-    .values-section { padding: 100px 5%; background: var(--off-white); }
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .value-card { background: var(--white); padding: 36px 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(27,42,94,0.06); }
-    .value-num { font-family: var(--font-mono); font-size: 28px; font-weight: 500; color: var(--gray-300); margin-bottom: 16px; }
-    .value-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
-    .value-desc { font-size: 14px; color: var(--gray-500); line-height: 1.8; }
-
-    @media (max-width: 960px) {
-      .bio-grid { grid-template-columns: 1fr; gap: 48px; }
-      .bio-sidebar { position: static; }
-      .values-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .values-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnhanceGov LLC — Organizational Intelligence & Strategic Advisory</title>
+  <meta name="description" content="EnhanceGov LLC helps CEOs and executives surface organizational blind spots through the Pharos Gap Diagnostics™ — an intelligence-tradecraft methodology that reveals the gap between declared capability and operational reality." />
+  <meta property="og:title" content="EnhanceGov LLC — Organizational Intelligence & Strategic Advisory" />
+  <meta property="og:description" content="Intelligence-tradecraft methodology for executives. The Pharos Gap Diagnostics™ reveals organizational blind spots before they become crises." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://enhancegov.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://enhancegov.com/" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EnhanceGov LLC",
+    "url": "https://enhancegov.com",
+    "description": "Strategic advisory firm applying intelligence-tradecraft methodology to organizational consulting.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Norfolk", "addressRegion": "VA" }
+  }
+  </script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a class="nav-brand" href="./index.html">
-      <div class="nav-logo-mark">E</div>
-      <div class="nav-brand-text">
-        <div class="nav-brand-name">EnhanceGov</div>
-        <div class="nav-brand-sub">Strategic Advisory</div>
+
+<!-- ── NAVIGATION ─────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="EnhanceGov home">
+      <img src="images/logo.png" alt="EnhanceGov LLC" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">EnhanceGov</span>
+        <span class="nav-logo-tag">LLC</span>
       </div>
     </a>
-    <div class="nav-links">
-      <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./services.html">Services</a>
-      <a href="./platform.html">Platform</a>
-      <a href="./insights.html">Insights</a>
-      <a href="./sectors.html">Sectors</a>
-      <a href="./contact.html" class="nav-cta">Contact</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pharos.html">Pharos™</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="insights.html">Insights</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="pharos.html" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.25rem;">Launch Diagnostics</a>
     </div>
-  </nav>
 
-  <!-- About Hero -->
-  <section class="about-hero">
-    <div class="hero-grid-overlay"></div>
-    <div class="hero-bg-circle hero-bg-circle-1"></div>
-    <div class="hero-bg-circle hero-bg-circle-2"></div>
-    <div class="about-hero-content">
-      <div class="hero-eyebrow">Our Story</div>
-      <h1>We help government agencies <em>think differently</em> about transformation</h1>
-      <p>Founded on the principle that organizational intelligence is the foundation of transformational success, EnhanceGov brings strategic clarity to complex government challenges.</p>
-    </div>
-  </section>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-  <!-- Bio Section -->
-  <section class="bio-section">
-    <div class="bio-grid">
-      <div class="bio-body">
-        <p><strong>EnhanceGov was founded</strong> with a singular mission: to bring organizational intelligence and strategic clarity to government agencies navigating complex transformation challenges.</p>
-        
-        <p>Our founders recognized that most government transformation efforts fail not because of a lack of good ideas, but because of misalignment—between departments, between technology and people, between strategy and execution. This insight drove us to create a methodology that puts organizational intelligence at the center of government transformation.</p>
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero" aria-label="Hero">
+  <div class="container">
+    <div class="hero-inner">
 
-        <div class="bio-pull">
-          <p>"The best strategy fails without organizational alignment. We build both."</p>
-        </div>
-
-        <p>Today, EnhanceGov advises leading federal agencies, cabinet departments, and government organizations across the United States. Our team combines deep government expertise, strategic advisory experience, and organizational psychology to deliver transformation that sticks.</p>
-
-        <p>We believe that government agencies deserve the same level of strategic excellence that the private sector demands. That's why we've built EnhanceGov to be a strategic partner that combines rigor, innovation, and a deep understanding of government dynamics.</p>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Intelligence-Tradecraft Methodology
       </div>
 
-      <aside class="bio-sidebar">
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Key Facts</div>
-          <div class="credential-list">
-            <div class="credential-item">
-              <div class="credential-dot"></div>
-              <div class="credential-text">
-                <strong>Founded</strong>
-                2019
-              </div>
+      <h1>Surface What Your<br><em>Organization Won't Tell You</em></h1>
+
+      <p class="hero-lead">
+        EnhanceGov applies CIA-grade analytical frameworks to help executives close the gap between what their governance documents declare and what their culture actually does.
+      </p>
+
+      <div class="hero-actions">
+        <a href="pharos.html" class="btn btn-primary btn-lg">Explore Pharos Diagnostics™</a>
+        <a href="about.html" class="btn btn-outline">Our Methodology →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── INTRO ───────────────────────────────────────────────── -->
+<section class="section section--off-white">
+  <div class="container">
+    <div class="two-col">
+      <div class="fade-up">
+        <span class="eyebrow">The Pharos Method™</span>
+        <h2>The Gap Between Policy and Reality Is Where Risk Lives</h2>
+        <div class="divider"></div>
+        <p>Most organizations invest heavily in governance frameworks, technology roadmaps, and strategic plans. But the documents rarely tell the whole story. What employees actually do — how decisions get made, where data flows, what processes get skipped — is often invisible to leadership.</p>
+        <p>The Pharos Method™ borrows from intelligence tradecraft: collect, validate, and analyze signals across both the Business Layer (declared posture) and the Human Layer (operational reality) to surface the divergence that creates organizational risk.</p>
+        <a href="services.html" class="btn btn-navy" style="margin-top:1rem;">See How It Works</a>
+      </div>
+
+      <div class="fade-up">
+        <!-- Pharos diagnostic visual -->
+        <div class="pharos-visual">
+          <div class="pharos-label-row">
+            <span class="pharos-layer-label">Business Layer</span>
+            <span class="pharos-layer-label">Human Layer</span>
+          </div>
+          <div class="pharos-scores">
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Governance Posture</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:82%"></div></div>
+              <span class="pharos-score-val">82</span>
             </div>
-            <div class="credential-item">
-              <div class="credential-dot"></div>
-              <div class="credential-text">
-                <strong>Team Size</strong>
-                45+ advisors & strategists
-              </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Tech Adoption</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:54%"></div></div>
+              <span class="pharos-score-val">54</span>
             </div>
-            <div class="credential-item">
-              <div class="credential-dot"></div>
-              <div class="credential-text">
-                <strong>Clients</strong>
-                180+ Government Agencies
-              </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Change Readiness</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:41%"></div></div>
+              <span class="pharos-score-val">41</span>
             </div>
-            <div class="credential-item">
-              <div class="credential-dot"></div>
-              <div class="credential-text">
-                <strong>Headquarters</strong>
-                Washington, DC
-              </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Data Governance</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:68%"></div></div>
+              <span class="pharos-score-val">68</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Leadership Alignment</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:37%"></div></div>
+              <span class="pharos-score-val">37</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Compliance Culture</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:71%"></div></div>
+              <span class="pharos-score-val">71</span>
             </div>
           </div>
+          <p style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:1.5rem;text-align:center;letter-spacing:0.06em;text-transform:uppercase;">Divergence Heatmap — Illustrative</p>
         </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- Values Section -->
-  <section class="values-section">
-    <div class="section-eyebrow" style="margin-left: 5%;">Core Values</div>
-    <h2 class="section-title" style="margin-left: 5%;">What drives us</h2>
-    <div class="values-grid" style="margin: 48px 5% 0;">
-      <div class="value-card">
-        <div class="value-num">01</div>
-        <div class="value-title">Organizational Intelligence</div>
-        <div class="value-desc">We believe that strategy without organizational alignment is just theory. We build both—strategy and the organizational capacity to execute it.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">02</div>
-        <div class="value-title">Government Expertise</div>
-        <div class="value-desc">We speak government. Our team has decades of experience inside government agencies, understanding political dynamics and bureaucratic realities.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">03</div>
-        <div class="value-title">Transformation That Sticks</div>
-        <div class="value-desc">We're not interested in one-time consulting engagements. We measure success by lasting organizational change and sustained value delivery.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <h2>Let's build organizational intelligence together</h2>
-    <p>Ready to explore how EnhanceGov can bring strategic clarity to your transformation goals?</p>
-    <div class="cta-actions">
-      <a href="./contact.html" class="btn-primary">Start a Conversation</a>
-      <a href="./services.html" class="btn-secondary">Explore Services</a>
+<!-- ── PRODUCT HIGHLIGHT ───────────────────────────────────── -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="text-center" style="max-width:640px;margin:0 auto 4rem;">
+      <span class="eyebrow">Now Live</span>
+      <h2>Pharos Gap Diagnostics™ Platform</h2>
+      <div class="divider divider--center"></div>
+      <p>Our flagship diagnostic platform is live and available to organizations ready to close the gap between their declared and operational reality.</p>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
+    <div class="card-grid">
+      <div class="card fade-up">
+        <div class="card-icon">🔍</div>
+        <h3>12-Dimension Assessment</h3>
+        <p>Measure across both your Business Layer and Human Layer — governance, tech stack, change readiness, culture, and more.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon">📊</div>
+        <h3>Financial Intelligence</h3>
+        <p>TCO modeling benchmarked against Gartner, IDC, and Flexera data reveals hidden infrastructure costs and shadow IT exposure.</p>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon">📄</div>
+        <h3>Executive PDF Reports</h3>
+        <p>Board-ready diagnostic reports with Divergence Heatmap, segment routing, and strategic recommendations — delivered instantly.</p>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:3rem;">
+      <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Access Pharos Platform →</a>
+      <span style="display:block;margin-top:1rem;font-size:0.82rem;color:var(--gray-mid)">pharos.enhancegov.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTORS TEASER ──────────────────────────────────────── -->
+<section class="section section--off-white">
+  <div class="container">
+    <div class="text-center" style="max-width:560px;margin:0 auto 3.5rem;">
+      <span class="eyebrow">Sector Expertise</span>
+      <h2>Built for the Industries Where Governance Matters Most</h2>
+    </div>
+
+    <div class="sector-grid">
+      <a href="sectors.html#healthcare" class="sector-card fade-up">
+        <span class="sector-card-icon">🏥</span>
+        <h3>Healthcare</h3>
+        <p>Compliance gap analysis across clinical operations, EHR governance, and HIPAA posture.</p>
+      </a>
+      <a href="sectors.html#federal" class="sector-card fade-up">
+        <span class="sector-card-icon">🏛️</span>
+        <h3>Federal Government</h3>
+        <p>Zero Trust readiness, FedRAMP alignment, and mission-critical technology gap diagnostics.</p>
+      </a>
+      <a href="sectors.html#energy" class="sector-card fade-up">
+        <span class="sector-card-icon">⚡</span>
+        <h3>Energy</h3>
+        <p>OT/IT convergence risk, regulatory compliance, and infrastructure modernization readiness.</p>
+      </a>
+      <a href="sectors.html#local-gov" class="sector-card fade-up">
+        <span class="sector-card-icon">🌐</span>
+        <h3>Local Government</h3>
+        <p>Digital services delivery, procurement posture, and constituent technology readiness.</p>
+      </a>
+      <a href="sectors.html#saas" class="sector-card fade-up">
+        <span class="sector-card-icon">💻</span>
+        <h3>SaaS</h3>
+        <p>Product-market fit diagnostics, scaling readiness, and enterprise governance for growth-stage companies.</p>
+      </a>
+      <a href="sectors.html" class="sector-card fade-up" style="justify-content:center;align-items:center;text-align:center;background:var(--off-white);">
+        <span style="font-size:1.5rem;">→</span>
+        <h3 style="font-size:1rem;">All Sectors</h3>
+        <p>View our full sector portfolio</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ──────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--lime);justify-content:center;display:block;margin-bottom:1rem;">Ready to Close the Gap?</span>
+    <h2>Your Strategy Is Only as Good as Your Organizational Reality</h2>
+    <p>Schedule a discovery call or run your first diagnostic on the Pharos platform today.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Start Diagnostics</a>
+      <a href="about.html" class="btn btn-outline btn-lg">About EnhanceGov</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <strong>EnhanceGov LLC</strong>
-        Organizational Intelligence & Strategic Advisory for Government Agencies
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+          <img src="images/logo.png" alt="EnhanceGov LLC" style="height:32px;width:auto;" />
+          <div>
+            <div class="footer-logo-name">EnhanceGov LLC</div>
+            <div class="footer-logo-tag">Organizational Intelligence</div>
+          </div>
+        </div>
+        <p>Applying intelligence-community tradecraft to strategic advisory — surfacing what your organization won't tell you.</p>
       </div>
-      <div class="footer-links">
-        <a href="./about.html">About</a>
-        <a href="./services.html">Services</a>
-        <a href="./platform.html">Platform</a>
-        <a href="./insights.html">Insights</a>
-        <a href="./contact.html">Contact</a>
-      </div>
-    </div>
-    <div class="footer-copy">
-      © 2026 EnhanceGov LLC. All rights reserved.
-    </div>
-  </footer>
 
-  <script src="./js/nav.js"></script>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="pharos.html">Pharos Gap Diagnostics™</a></li>
+          <li><a href="https://pharos.enhancegov.com" target="_blank" rel="noopener">Access Platform</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/enhancegov" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:info@enhancegov.com">info@enhancegov.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 EnhanceGov LLC. All rights reserved. Norfolk, Virginia.</span>
+      <span class="footer-trademark">Pharos Method™ and Pharos Gap Diagnostics™ are trademarks of EnhanceGov LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
 </body>
 </html>

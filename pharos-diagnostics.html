@@ -1,243 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHAROS Diagnostics — Organizational Intelligence for Government</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <style>
-    /* ══════════════════════════════════════════
-       PHAROS DIAGNOSTICS
-     ═══════════════════════════════════════════ */
-    .diag-hero {
-      background: var(--navy-dark); padding: 120px 5% 80px;
-      min-height: 70vh; display: flex; align-items: center;
-      position: relative; overflow: hidden;
-    }
-    .diag-hero-content { position: relative; z-index: 2; max-width: 760px; }
-    .diag-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 5.5vw, 68px);
-      font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: 24px;
-    }
-    .diag-hero h1 em { color: var(--green); font-style: italic; }
-    .diag-hero p { font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 36px; max-width: 600px; }
-    .diag-coming-soon-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(127,215,88,0.12); border: 1px solid rgba(127,215,88,0.35);
-      border-radius: 40px; padding: 10px 22px; margin-bottom: 36px;
-    }
-    .diag-coming-soon-badge .badge-dot {
-      width: 8px; height: 8px; background: var(--green);
-      border-radius: 50%; animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
-    .diag-coming-soon-badge span {
-      font-family: var(--font-mono); font-size: 11px;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--green);
-    }
-    .diag-what-section { padding: 100px 5%; background: var(--white); }
-    .diag-what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .diag-what-left { display: flex; flex-direction: column; gap: 24px; }
-    .diag-what-left h2 {
-      font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 900; color: var(--navy); line-height: 1.15; margin: 0;
-    }
-    .diag-what-left p { font-size: 16px; color: var(--gray-500); line-height: 1.85; margin: 0; }
-    .diag-video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      background: var(--off-white);
-    }
-    .diag-video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 8px;
-    }
-    .diag-what-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .diag-process-section { padding: 100px 5%; background: var(--off-white); }
-    .diag-process-header { max-width: 580px; margin-bottom: 60px; }
-    .diag-process-header p { font-size: 16px; color: var(--gray-500); line-height: 1.8; }
-    .diag-process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .diag-process-step { background: var(--white); padding: 40px 32px; position: relative; }
-    .diag-process-step-num {
-      font-family: var(--font-mono); font-size: 11px;
-      letter-spacing: 0.15em; color: var(--green); margin-bottom: 20px;
-    }
-    .diag-process-step-name {
-      font-family: var(--font-display); font-size: 20px;
-      font-weight: 700; color: var(--navy); margin-bottom: 12px;
-    }
-    .diag-process-step p { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
-    .diag-cta-section {
-      background: var(--navy); padding: 100px 5%;
-      display: grid; grid-template-columns: 1fr 1.1fr;
-      gap: 80px; align-items: center;
-      position: relative; overflow: hidden;
-    }
-    .diag-cta-left h2 {
-      font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 900; color: var(--white); line-height: 1.2; margin-bottom: 20px;
-    }
-    .diag-cta-left h2 em { color: var(--green); font-style: italic; }
-    .diag-cta-left p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 32px; }
-    .diag-online-note {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(127,215,88,0.1); border: 1px solid rgba(127,215,88,0.25);
-      border-radius: 4px; padding: 14px 20px; margin-bottom: 32px;
-    }
-    .diag-online-note-icon { font-size: 18px; }
-    .diag-online-note-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; }
-    .diag-online-note-text strong { display: block; color: var(--green); font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
-
-    @media (max-width: 960px) {
-      .diag-what-grid { grid-template-columns: 1fr; gap: 48px; }
-      .diag-cta-section { grid-template-columns: 1fr; gap: 48px; }
-      .diag-process-steps { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .diag-process-steps { grid-template-columns: 1fr; }
-      .diag-what-buttons { flex-direction: column; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pharos Gap Diagnostics™ — EnhanceGov LLC</title>
+  <meta name="description" content="Pharos Gap Diagnostics™ is now live. The intelligence-tradecraft platform that measures the gap between your declared organizational posture and your operational reality." />
+  <meta property="og:title" content="Pharos Gap Diagnostics™ — EnhanceGov LLC" />
+  <meta property="og:description" content="Now live: The diagnostic platform that reveals organizational blind spots executives can't see from the inside." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://enhancegov.com/pharos.html" />
+  <link rel="canonical" href="https://enhancegov.com/pharos.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pharos Gap Diagnostics™",
+    "applicationCategory": "BusinessApplication",
+    "offers": { "@type": "Offer", "url": "https://pharos.enhancegov.com" },
+    "creator": { "@type": "Organization", "name": "EnhanceGov LLC", "url": "https://enhancegov.com" }
+  }
+  </script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a class="nav-brand" href="./index.html">
-      <div class="nav-logo-mark">E</div>
-      <div class="nav-brand-text">
-        <div class="nav-brand-name">EnhanceGov</div>
-        <div class="nav-brand-sub">Strategic Advisory</div>
+
+<!-- ── NAVIGATION ─────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="EnhanceGov home">
+      <img src="images/logo.png" alt="EnhanceGov LLC" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">EnhanceGov</span>
+        <span class="nav-logo-tag">LLC</span>
       </div>
     </a>
-    <div class="nav-links">
-      <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./services.html">Services</a>
-      <a href="./platform.html">Platform</a>
-      <a href="./insights.html">Insights</a>
-      <a href="./sectors.html">Sectors</a>
-      <a href="./contact.html" class="nav-cta">Contact</a>
-    </div>
-  </nav>
 
-  <!-- PHAROS Hero -->
-  <section class="diag-hero">
-    <div class="hero-grid-overlay"></div>
-    <div class="hero-bg-circle hero-bg-circle-1"></div>
-    <div class="hero-bg-circle hero-bg-circle-2"></div>
-    <div class="diag-hero-content">
-      <div class="diag-coming-soon-badge">
-        <div class="badge-dot"></div>
-        <span>Now Available</span>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pharos.html">Pharos™</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="insights.html">Insights</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.25rem;">Launch Diagnostics</a>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="page-hero" aria-label="Pharos hero">
+  <div class="container">
+    <div class="page-hero-inner">
+
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.75rem;">
+        <span class="live-badge">
+          <span class="live-dot"></span>
+          Now Live
+        </span>
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);">pharos.enhancegov.com</span>
       </div>
-      <div class="hero-eyebrow">Strategic Framework</div>
-      <h1>PHAROS <em>Diagnostics</em>: Deep Organizational Intelligence</h1>
-      <p>Comprehensive organizational assessment designed specifically for government agencies. Understand your transformation readiness, identify barriers, and build a clear roadmap forward.</p>
-    </div>
-  </section>
 
-  <!-- What is PHAROS -->
-  <section class="diag-what-section">
-    <div class="diag-what-grid">
-      <div class="diag-what-left">
-        <div class="section-eyebrow">About PHAROS</div>
-        <h2>Five dimensions of organizational intelligence</h2>
-        <p>PHAROS Diagnostics assesses your organization across five integrated dimensions—Perception, Hypothesis, Alignment, Roadmap, and Orchestration—to build a comprehensive understanding of your transformation readiness and create actionable pathways forward.</p>
-        <div class="diag-what-buttons">
-          <a href="https://pharos.enhancegov.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Visit Pharos</a>
-          <a href="./contact.html" class="btn-secondary">Schedule Consultation</a>
+      <h1 style="max-width:780px;">Pharos Gap Diagnostics™</h1>
+
+      <p class="page-hero-lead">
+        The only organizational diagnostic platform built on intelligence-tradecraft methodology. Measure the gap between what your governance documents declare and what your culture actually does — then close it.
+      </p>
+
+      <div class="hero-actions" style="margin-top:2.25rem;">
+        <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+          Access the Platform →
+        </a>
+        <a href="#overview" class="btn btn-outline">See How It Works</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── LAUNCH VIDEO ────────────────────────────────────────── -->
+<section class="video-section" aria-label="Product launch video" id="launch-video">
+  <div class="container">
+    <div class="video-wrapper">
+
+      <div class="video-label fade-up">
+        <span class="eyebrow">Product Launch</span>
+        <h2>See Pharos Gap Diagnostics™ in Action</h2>
+        <p>Watch the official launch of the platform and see how the Pharos Method™ turns organizational intelligence into actionable strategy.</p>
+      </div>
+
+      <div class="video-embed fade-up" role="region" aria-label="Pharos platform launch video">
+        <!-- Vimeo embed — no login required, no byline, no portrait, no title -->
+        <iframe
+          src="https://player.vimeo.com/video/1197820049?badge=0&autopause=0&player_id=0&app_id=58479&byline=0&portrait=0&title=0&dnt=1"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          title="Pharos Gap Diagnostics™ — Product Launch"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── OVERVIEW ────────────────────────────────────────────── -->
+<section class="section" id="overview" aria-label="Platform overview">
+  <div class="container">
+    <div class="two-col">
+      <div class="fade-up">
+        <span class="eyebrow">The Pharos Method™</span>
+        <h2>Two Layers. One Diagnostic Truth.</h2>
+        <div class="divider"></div>
+        <p>Most assessments only measure what an organization <em>says</em> it does. Pharos measures the delta between declared intent and operational reality — a gap that, unaddressed, becomes your biggest strategic liability.</p>
+
+        <ul class="feature-list" style="margin-top:1.5rem;">
+          <li><strong>Business Layer</strong> — Governance posture, technology declarations, compliance frameworks, strategic documentation</li>
+          <li><strong>Human Layer</strong> — Cultural readiness, change adoption, behavioral signals, informal decision patterns</li>
+          <li><strong>Divergence Score</strong> — A proprietary index quantifying the gap across 12 dimensions</li>
+          <li><strong>Financial Intelligence</strong> — TCO modeling with Cloud, On-Premises, Hybrid, Shadow Cost analysis</li>
+          <li><strong>Executive Report</strong> — Board-ready PDF with heatmap and prioritized recommendations</li>
+        </ul>
+      </div>
+
+      <div class="fade-up">
+        <div class="pharos-visual">
+          <div style="margin-bottom:1.5rem;">
+            <p style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem;">Divergence Heatmap</p>
+            <p style="font-size:1.1rem;font-family:var(--font-display);color:var(--white);font-weight:600;">Organizational Readiness Score</p>
+          </div>
+          <div class="pharos-scores">
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">AI Governance</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:28%"></div></div>
+              <span class="pharos-score-val">28</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Data Stewardship</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:61%"></div></div>
+              <span class="pharos-score-val">61</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Change Readiness</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:44%"></div></div>
+              <span class="pharos-score-val">44</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Compliance Culture</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:76%"></div></div>
+              <span class="pharos-score-val">76</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Tech Adoption</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:39%"></div></div>
+              <span class="pharos-score-val">39</span>
+            </div>
+            <div class="pharos-score-row">
+              <span class="pharos-score-label">Leadership Alignment</span>
+              <div class="pharos-score-bar"><div class="pharos-score-fill" style="width:55%"></div></div>
+              <span class="pharos-score-val">55</span>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em;">Avg. Divergence Index</span>
+            <span style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--lime);">31<span style="font-size:1rem;opacity:0.6"> pts</span></span>
+          </div>
         </div>
       </div>
-      <div class="diag-video-container">
-        <iframe src="https://player.vimeo.com/video/1197820049?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Pharos_Diagnostics_Organizational_Intelligence_Demo_with_captions"></iframe>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PHAROS Process -->
-  <section class="diag-process-section">
-    <div class="diag-process-header">
-      <div class="section-eyebrow">The Process</div>
-      <h2>How PHAROS Diagnostics Works</h2>
-      <p>A structured, evidence-based approach designed to provide deep organizational intelligence while building internal capability and stakeholder alignment.</p>
+<!-- ── HOW IT WORKS ────────────────────────────────────────── -->
+<section class="section section--off-white" aria-label="How Pharos works">
+  <div class="container">
+    <div class="text-center" style="max-width:560px;margin:0 auto 4rem;">
+      <span class="eyebrow">Process</span>
+      <h2>From Intake to Intelligence in Four Steps</h2>
     </div>
 
-    <div class="diag-process-steps">
-      <div class="diag-process-step">
-        <div class="diag-process-step-num">PHASE 1</div>
-        <div class="diag-process-step-name">Scoping & Planning</div>
-        <p>Clarity on your transformation objectives, organizational scope, stakeholder mapping, and diagnostic approach customization.</p>
+    <div class="steps">
+      <div class="step fade-up">
+        <h4>Intake Assessment</h4>
+        <p>Complete a structured intake form capturing your technology stack, governance posture, and organizational context.</p>
       </div>
-      <div class="diag-process-step">
-        <div class="diag-process-step-num">PHASE 2</div>
-        <div class="diag-process-step-name">Intelligence Gathering</div>
-        <p>Comprehensive data collection through interviews, surveys, document analysis, and organizational observation across all five PHAROS dimensions.</p>
+      <div class="step fade-up">
+        <h4>Diagnostic Engine</h4>
+        <p>Our 12-dimension scoring engine analyzes declared posture against behavioral and operational signals.</p>
       </div>
-      <div class="diag-process-step">
-        <div class="diag-process-step-num">PHASE 3</div>
-        <div class="diag-process-step-name">Analysis & Synthesis</div>
-        <p>Deep analysis, pattern identification, and development of actionable insights with strategic recommendations and implementation roadmap.</p>
+      <div class="step fade-up">
+        <h4>Gap Analysis</h4>
+        <p>The Divergence Heatmap quantifies the delta between Business Layer and Human Layer across every dimension.</p>
+      </div>
+      <div class="step fade-up">
+        <h4>Executive Report</h4>
+        <p>Receive a board-ready PDF with your Divergence Score, Financial Intelligence summary, and prioritized action plan.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA Section -->
-  <section class="diag-cta-section">
-    <div class="diag-cta-left">
-      <h2>Ready to unlock your organization's <em>transformation</em> potential?</h2>
-      <p>Schedule a consultation to learn more about PHAROS Diagnostics and how deep organizational intelligence can guide your transformation journey.</p>
-      <div class="diag-online-note">
-        <div class="diag-online-note-icon">💻</div>
-        <div class="diag-online-note-text">
-          <strong>Available Online & On-Site</strong>
-          Flexible delivery options to accommodate your organization's preferences and operational requirements.
+<!-- ── FINANCIAL INTELLIGENCE ──────────────────────────────── -->
+<section class="section section--navy" aria-label="Financial Intelligence layer">
+  <div class="container">
+    <div class="two-col">
+      <div class="fade-up">
+        <span class="eyebrow">Financial Intelligence Layer</span>
+        <h2>Total Cost of Ownership — Benchmarked Against Reality</h2>
+        <div class="divider"></div>
+        <p style="color:rgba(255,255,255,0.75);">Most CFOs are working with incomplete TCO data. Shadow IT, stranded cloud spend, and underestimated change management costs are systematically hidden from financial models.</p>
+        <p style="color:rgba(255,255,255,0.75);">Pharos's Financial Intelligence layer benchmarks your infrastructure spend against Gartner, IDC, and Flexera data — revealing hidden cost exposure across five TCO buckets.</p>
+        <ul class="feature-list" style="margin-top:1.5rem;">
+          <li style="color:rgba(255,255,255,0.8);">Cloud infrastructure & stranded spend analysis</li>
+          <li style="color:rgba(255,255,255,0.8);">On-premises depreciation burden</li>
+          <li style="color:rgba(255,255,255,0.8);">Hybrid complexity index</li>
+          <li style="color:rgba(255,255,255,0.8);">Shadow Cost identification</li>
+          <li style="color:rgba(255,255,255,0.8);">Change management cost modeling</li>
+        </ul>
+      </div>
+
+      <div class="fade-up" style="display:flex;flex-direction:column;gap:1rem;">
+        <!-- TCO mini visual -->
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(127,215,88,0.2);border-radius:10px;padding:1.75rem;">
+          <p style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;">TCO Bucket Breakdown</p>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7);">☁️ Cloud</span>
+              <div style="flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:62%;height:100%;background:var(--lime);border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.82rem;color:var(--lime);font-weight:700;">62%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7);">🖥️ On-Prem</span>
+              <div style="flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:18%;height:100%;background:rgba(127,215,88,0.6);border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.82rem;color:rgba(127,215,88,0.7);font-weight:700;">18%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7);">🔀 Hybrid</span>
+              <div style="flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:8%;height:100%;background:rgba(127,215,88,0.4);border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.82rem;color:rgba(127,215,88,0.5);font-weight:700;">8%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7);">👤 Change Mgmt</span>
+              <div style="flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:6%;height:100%;background:rgba(127,215,88,0.3);border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.82rem;color:rgba(127,215,88,0.4);font-weight:700;">6%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.85rem;color:rgba(255,0,80,0.8);">⚠️ Shadow Cost</span>
+              <div style="flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:6%;height:100%;background:rgba(255,80,80,0.7);border-radius:3px;"></div>
+              </div>
+              <span style="font-size:0.82rem;color:rgba(255,100,100,0.9);font-weight:700;">6%</span>
+            </div>
+          </div>
+          <p style="font-size:0.65rem;color:rgba(255,255,255,0.25);margin-top:1.25rem;text-align:center;">Illustrative — benchmarked against Gartner/IDC/Flexera data</p>
         </div>
       </div>
-      <a href="./contact.html" class="btn-primary">Schedule Consultation</a>
     </div>
-    <div>
-      <a href="./services.html" class="btn-secondary" style="display: block; margin-bottom: 20px; text-align: center;">Explore All Services</a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
+<!-- ── CTA ─────────────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="live-badge" style="margin:0 auto 1.5rem;display:inline-flex;">
+      <span class="live-dot"></span>
+      Platform Available Now
+    </div>
+    <h2>Start Your First Organizational Diagnostic</h2>
+    <p>Join the executives using Pharos to close the gap between strategic intent and operational reality.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Access Pharos Platform →</a>
+      <a href="services.html" class="btn btn-outline btn-lg">Explore Advisory Services</a>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.35);">pharos.enhancegov.com</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <strong>EnhanceGov LLC</strong>
-        Organizational Intelligence & Strategic Advisory for Government Agencies
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+          <img src="images/logo.png" alt="EnhanceGov LLC" style="height:32px;width:auto;" />
+          <div>
+            <div class="footer-logo-name">EnhanceGov LLC</div>
+            <div class="footer-logo-tag">Organizational Intelligence</div>
+          </div>
+        </div>
+        <p>Applying intelligence-community tradecraft to strategic advisory — surfacing what your organization won't tell you.</p>
       </div>
-      <div class="footer-links">
-        <a href="./about.html">About</a>
-        <a href="./services.html">Services</a>
-        <a href="./platform.html">Platform</a>
-        <a href="./insights.html">Insights</a>
-        <a href="./contact.html">Contact</a>
-      </div>
-    </div>
-    <div class="footer-copy">
-      © 2026 EnhanceGov LLC. All rights reserved.
-    </div>
-  </footer>
 
-  <script src="./js/nav.js"></script>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="pharos.html">Pharos Gap Diagnostics™</a></li>
+          <li><a href="https://pharos.enhancegov.com" target="_blank" rel="noopener">Access Platform</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/enhancegov" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:info@enhancegov.com">info@enhancegov.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 EnhanceGov LLC. All rights reserved. Norfolk, Virginia.</span>
+      <span class="footer-trademark">Pharos Method™ and Pharos Gap Diagnostics™ are trademarks of EnhanceGov LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sectors — EnhanceGov LLC</title>
+  <meta name="description" content="EnhanceGov LLC serves healthcare, federal government, local government, energy, SaaS, and financial services organizations with intelligence-tradecraft diagnostic methodology." />
+  <meta property="og:title" content="Sectors — EnhanceGov LLC" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://enhancegov.com/sectors.html" />
+  <link rel="canonical" href="https://enhancegov.com/sectors.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Sector article styles (preserved) ──────────────────── */
+    .sector-article {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .sector-article:last-child { border-bottom: none; }
+
+    .sector-article-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .sector-article-icon {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+    }
+
+    .sector-article-meta { flex: 1; }
+    .sector-article-meta .eyebrow { margin-bottom: 0.4rem; }
+    .sector-article-meta h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 0; }
+
+    .sector-body {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .sector-body-text p { font-size: 0.95rem; line-height: 1.85; }
+
+    .sector-sidebar {
+      background: var(--off-white);
+      border-radius: 10px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-light);
+    }
+
+    .sector-sidebar h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lime-dark);
+      margin-bottom: 1rem;
+    }
+
+    .sector-sidebar ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .sector-sidebar li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--gray-text);
+    }
+
+    .sector-sidebar li::before {
+      content: '→';
+      color: var(--lime-dark);
+      font-weight: 700;
+      margin-top: 0.05rem;
+      flex-shrink: 0;
+    }
+
+    .sector-svg {
+      margin: 2rem 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+    }
+
+    @media (max-width: 768px) {
+      .sector-body { grid-template-columns: 1fr; gap: 2rem; }
+      .sector-article-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ─────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="EnhanceGov home">
+      <img src="images/logo.png" alt="EnhanceGov LLC" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">EnhanceGov</span>
+        <span class="nav-logo-tag">LLC</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pharos.html">Pharos™</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="insights.html">Insights</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.25rem;">Launch Diagnostics</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="eyebrow">Sector Expertise</span>
+      <h1>Industries We Serve</h1>
+      <p class="page-hero-lead">
+        The gap between declared and operational reality is universal — but its consequences are sector-specific. EnhanceGov brings tailored diagnostic intelligence across six critical sectors.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTOR NAV ──────────────────────────────────────────── -->
+<div style="background:var(--white);border-bottom:1px solid var(--gray-light);position:sticky;top:72px;z-index:100;">
+  <div class="container">
+    <nav aria-label="Sector navigation" style="display:flex;gap:0;overflow-x:auto;scrollbar-width:none;">
+      <a href="#healthcare" style="padding:1rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--gray-text);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='var(--navy)';this.style.borderBottomColor='var(--lime)'" onmouseout="this.style.color='var(--gray-text)';this.style.borderBottomColor='transparent'">🏥 Healthcare</a>
+      <a href="#federal" style="padding:1rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--gray-text);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='var(--navy)';this.style.borderBottomColor='var(--lime)'" onmouseout="this.style.color='var(--gray-text)';this.style.borderBottomColor='transparent'">🏛️ Federal Gov</a>
+      <a href="#local-gov" style="padding:1rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--gray-text);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='var(--navy)';this.style.borderBottomColor='var(--lime)'" onmouseout="this.style.color='var(--gray-text)';this.style.borderBottomColor='transparent'">🌐 Local Gov</a>
+      <a href="#energy" style="padding:1rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--gray-text);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='var(--navy)';this.style.borderBottomColor='var(--lime)'" onmouseout="this.style.color='var(--gray-text)';this.style.borderBottomColor='transparent'">⚡ Energy</a>
+      <a href="#saas" style="padding:1rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--gray-text);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='var(--navy)';this.style.borderBottomColor='var(--lime)'" onmouseout="this.style.color='var(--gray-text)';this.style.borderBottomColor='transparent'">💻 SaaS</a>
+      <a href="#financial" style="padding:1rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--gray-text);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.color='var(--navy)';this.style.borderBottomColor='var(--lime)'" onmouseout="this.style.color='var(--gray-text)';this.style.borderBottomColor='transparent'">🏦 Financial Services</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ── SECTOR ARTICLES ─────────────────────────────────────── -->
+<div style="background:var(--white);">
+  <div class="container">
+
+    <!-- HEALTHCARE ─────────────────────────────────────────── -->
+    <article class="sector-article" id="healthcare">
+      <div class="sector-article-header">
+        <div class="sector-article-icon">🏥</div>
+        <div class="sector-article-meta">
+          <span class="eyebrow">Sector Intelligence</span>
+          <h2>Healthcare</h2>
+        </div>
+      </div>
+
+      <div class="sector-body">
+        <div class="sector-body-text">
+          <p>Healthcare organizations operate in one of the most heavily documented regulatory environments in any sector — HIPAA, HITECH, CMS Conditions of Participation, Joint Commission standards, state-level licensure requirements. The documentation burden is enormous. And it creates a dangerous illusion: that because a policy exists in writing, it exists in practice.</p>
+
+          <p>The Pharos Gap Diagnostic™ was built, in part, because of what we observed in healthcare organizations. Compliance officers produce meticulously documented policies. Clinical staff develop workarounds. EHR systems are configured one way and used another. The gap between the compliance posture and the clinical operational reality is where breach risk, patient safety incidents, and regulatory findings actually originate.</p>
+
+          <p>Healthcare AI adoption is accelerating this problem. Organizations are deploying clinical decision support, ambient documentation, and revenue cycle AI tools without first understanding what organizational behaviors, data governance gaps, and workflow inconsistencies those systems will encode and amplify. The model learns what your organization actually does — not what your policies say it does.</p>
+
+          <p>EnhanceGov's healthcare diagnostic work focuses on three gap zones: governance-to-practice alignment (where documentation and behavior diverge), EHR configuration-to-utilization alignment (where system design and clinical workflow diverge), and AI readiness posture (where technology declarations and organizational readiness diverge). These are the gaps that create risk before a breach, an audit, or an AI-generated error makes them visible.</p>
+
+          <!-- Healthcare SVG visual -->
+          <div class="sector-svg">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F7F8FC;">
+              <defs>
+                <linearGradient id="hc-lime" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#5fba3a;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#7FD758;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <!-- Bars -->
+              <text x="20" y="30" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#8A93B2" font-weight="600" letter-spacing="1">HEALTHCARE DIVERGENCE PROFILE</text>
+              <!-- Bar rows -->
+              <rect x="20" y="50" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="50" width="185" height="14" rx="3" fill="url(#hc-lime)"/>
+              <text x="250" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">HIPAA Posture</text>
+              <text x="360" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">84%</text>
+
+              <rect x="20" y="75" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="75" width="110" height="14" rx="3" fill="url(#hc-lime)"/>
+              <text x="250" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Clinical Practice Alignment</text>
+              <text x="360" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">50%</text>
+
+              <rect x="20" y="100" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="100" width="75" height="14" rx="3" fill="url(#hc-lime)"/>
+              <text x="250" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">EHR Utilization Rate</text>
+              <text x="360" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">34%</text>
+
+              <rect x="20" y="125" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="125" width="145" height="14" rx="3" fill="url(#hc-lime)"/>
+              <text x="250" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">AI Governance Readiness</text>
+              <text x="360" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">66%</text>
+
+              <text x="20" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#8A93B2">Divergence Index: 34 pts — Illustrative data</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sector-sidebar">
+          <h4>Diagnostic Focus Areas</h4>
+          <ul>
+            <li>HIPAA posture vs. clinical practice alignment</li>
+            <li>EHR configuration and utilization gap analysis</li>
+            <li>AI readiness for clinical decision support tools</li>
+            <li>Data governance and interoperability readiness</li>
+            <li>Change management for digital transformation</li>
+            <li>Revenue cycle technology adoption assessment</li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-light);">
+            <h4>Relevant Frameworks</h4>
+            <ul>
+              <li>HIPAA / HITECH</li>
+              <li>CMS Conditions of Participation</li>
+              <li>ONC Health IT Certification</li>
+              <li>Joint Commission Standards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- FEDERAL GOVERNMENT ──────────────────────────────────── -->
+    <article class="sector-article" id="federal">
+      <div class="sector-article-header">
+        <div class="sector-article-icon">🏛️</div>
+        <div class="sector-article-meta">
+          <span class="eyebrow">Sector Intelligence</span>
+          <h2>Federal Government</h2>
+        </div>
+      </div>
+
+      <div class="sector-body">
+        <div class="sector-body-text">
+          <p>Federal agencies operate at the intersection of extraordinary mandates and extraordinary constraints. Mission-critical technology decisions are made under procurement timelines that often lag the threat environment by years. Workforce culture around technology adoption reflects decades of institutional inertia. And the gap between what an agency declares in its IT strategic plan and what its workforce actually does is, in many cases, the widest in any sector.</p>
+
+          <p>Zero Trust architecture is the defining example. The federal government has mandated Zero Trust adoption across civilian agencies. What the mandate doesn't address is the organizational readiness to implement it — the change management infrastructure, the cultural shift from perimeter-centric security thinking, the workforce training, and the behavioral alignment required for Zero Trust to function as architecture rather than as a document.</p>
+
+          <p>EnhanceGov's federal diagnostic work applies the Pharos Method™ to the specific organizational dynamics of federal agencies: mission alignment vs. operational capability, policy compliance vs. policy practice, and technology declaration vs. technology adoption. Our work with federal organizations focuses on the gaps that agency leadership can't see from the inside — because they're embedded in the institutional culture that leadership helped create.</p>
+
+          <div class="sector-svg">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F7F8FC;">
+              <text x="20" y="30" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#8A93B2" font-weight="600" letter-spacing="1">FEDERAL AGENCY DIVERGENCE PROFILE</text>
+              <rect x="20" y="50" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="50" width="176" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Zero Trust Policy Declaration</text>
+              <text x="430" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">80%</text>
+              <rect x="20" y="75" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="75" width="88" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Zero Trust Operational Readiness</text>
+              <text x="430" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">40%</text>
+              <rect x="20" y="100" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="100" width="132" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">FedRAMP Posture</text>
+              <text x="430" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">60%</text>
+              <rect x="20" y="125" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="125" width="55" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Workforce Adoption Culture</text>
+              <text x="430" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">25%</text>
+              <text x="20" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#8A93B2">Divergence Index: 40 pts — Illustrative data</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sector-sidebar">
+          <h4>Diagnostic Focus Areas</h4>
+          <ul>
+            <li>Zero Trust architecture readiness assessment</li>
+            <li>FedRAMP alignment and gap analysis</li>
+            <li>Mission-critical technology adoption diagnostics</li>
+            <li>Workforce culture and change readiness</li>
+            <li>AI governance for federal applications</li>
+            <li>Procurement posture vs. delivery capability</li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-light);">
+            <h4>Relevant Frameworks</h4>
+            <ul>
+              <li>NIST SP 800-207 (Zero Trust)</li>
+              <li>FedRAMP Authorization</li>
+              <li>FISMA / RMF</li>
+              <li>OMB M-22-09</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- LOCAL GOVERNMENT ────────────────────────────────────── -->
+    <article class="sector-article" id="local-gov">
+      <div class="sector-article-header">
+        <div class="sector-article-icon">🌐</div>
+        <div class="sector-article-meta">
+          <span class="eyebrow">Sector Intelligence</span>
+          <h2>Local Government</h2>
+        </div>
+      </div>
+
+      <div class="sector-body">
+        <div class="sector-body-text">
+          <p>Local governments are experiencing a digital transformation pressure that is fundamentally different from what federal agencies or private sector organizations face. The resource constraints are more severe. The workforce dynamics are more complex. And the constituent expectations — shaped by private sector digital experiences — are increasingly disconnected from government's capacity to deliver.</p>
+
+          <p>The gap manifests differently at the local level. A city's digital services strategy is documented in a comprehensive plan. The actual constituent experience — the forms that don't work on mobile, the processes that still require physical presence, the data systems that can't communicate with each other — tells a different story. The organizational intelligence failure isn't at the policy level; it's in the translation from strategic intent to operational delivery.</p>
+
+          <p>Procurement posture is a particular area of divergence in local government. Municipalities develop RFP language for technology solutions that reflects best-practice standards they've read about, not organizational readiness they've assessed. The result is technology acquisitions that the organization isn't ready to absorb, implement, or sustain — a pattern the Pharos diagnostic identifies before the contract is signed.</p>
+
+          <div class="sector-svg">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F7F8FC;">
+              <text x="20" y="30" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#8A93B2" font-weight="600" letter-spacing="1">LOCAL GOVERNMENT DIVERGENCE PROFILE</text>
+              <rect x="20" y="50" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="50" width="176" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Digital Services Strategy</text>
+              <text x="430" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">80%</text>
+              <rect x="20" y="75" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="75" width="77" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Constituent Digital Experience</text>
+              <text x="430" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">35%</text>
+              <rect x="20" y="100" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="100" width="110" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Procurement Readiness</text>
+              <text x="430" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">50%</text>
+              <rect x="20" y="125" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="125" width="66" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">IT Workforce Capacity</text>
+              <text x="430" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">30%</text>
+              <text x="20" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#8A93B2">Divergence Index: 45 pts — Illustrative data</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sector-sidebar">
+          <h4>Diagnostic Focus Areas</h4>
+          <ul>
+            <li>Digital services delivery readiness</li>
+            <li>Constituent technology experience audit</li>
+            <li>Procurement posture assessment</li>
+            <li>Legacy modernization risk analysis</li>
+            <li>IT workforce capacity and capability gap</li>
+            <li>Open data governance and transparency posture</li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-light);">
+            <h4>Common Engagements</h4>
+            <ul>
+              <li>Pre-procurement diagnostic</li>
+              <li>Digital transformation readiness</li>
+              <li>Constituent portal gap analysis</li>
+              <li>Council briefing preparation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ENERGY ─────────────────────────────────────────────── -->
+    <article class="sector-article" id="energy">
+      <div class="sector-article-header">
+        <div class="sector-article-icon">⚡</div>
+        <div class="sector-article-meta">
+          <span class="eyebrow">Sector Intelligence</span>
+          <h2>Energy</h2>
+        </div>
+      </div>
+
+      <div class="sector-body">
+        <div class="sector-body-text">
+          <p>The energy sector is in the middle of a convergence that is rewriting the organizational risk landscape: operational technology (OT) systems — the hardware and software that control physical infrastructure — are increasingly connected to information technology (IT) networks. The business case for this convergence is compelling. The governance gap it creates is enormous.</p>
+
+          <p>Energy organizations have robust IT security frameworks, developed over decades of enterprise IT experience. They have OT systems with security architectures that reflect a different era — designed for isolation, not interconnection. The convergence of these two worlds is happening faster than governance frameworks, organizational structures, or workforce capabilities can accommodate. The result is a gap that regulatory compliance posture consistently overstates and that operational reality consistently understates.</p>
+
+          <p>The oil and gas sector faces a related but distinct challenge: data governance at scale. The volume, variety, and velocity of data generated across exploration, production, and refining operations is staggering. The organizational capability to govern, analyze, and act on that data is not. EnhanceGov's energy diagnostic work identifies the specific governance gaps — in data architecture, in decision authority, in workflow integration — that prevent energy organizations from realizing the intelligence value of their own operational data.</p>
+
+          <div class="sector-svg">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F7F8FC;">
+              <text x="20" y="30" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#8A93B2" font-weight="600" letter-spacing="1">ENERGY SECTOR DIVERGENCE PROFILE</text>
+              <rect x="20" y="50" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="50" width="187" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">IT Security Posture</text>
+              <text x="430" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">85%</text>
+              <rect x="20" y="75" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="75" width="88" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">OT/IT Convergence Governance</text>
+              <text x="430" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">40%</text>
+              <rect x="20" y="100" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="100" width="132" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Regulatory Compliance Posture</text>
+              <text x="430" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">60%</text>
+              <rect x="20" y="125" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="125" width="66" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Data Governance Maturity</text>
+              <text x="430" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">30%</text>
+              <text x="20" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#8A93B2">Divergence Index: 50 pts — Illustrative data</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sector-sidebar">
+          <h4>Diagnostic Focus Areas</h4>
+          <ul>
+            <li>OT/IT convergence risk mapping</li>
+            <li>NERC CIP compliance posture vs. practice</li>
+            <li>Data governance for operational intelligence</li>
+            <li>Infrastructure modernization readiness</li>
+            <li>Regulatory compliance gap analysis</li>
+            <li>AI/ML readiness for predictive maintenance</li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-light);">
+            <h4>Relevant Frameworks</h4>
+            <ul>
+              <li>NERC CIP</li>
+              <li>ICS-CERT Guidelines</li>
+              <li>NIST Cybersecurity Framework</li>
+              <li>DOE Cybersecurity Capability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SAAS ───────────────────────────────────────────────── -->
+    <article class="sector-article" id="saas">
+      <div class="sector-article-header">
+        <div class="sector-article-icon">💻</div>
+        <div class="sector-article-meta">
+          <span class="eyebrow">Sector Intelligence</span>
+          <h2>SaaS</h2>
+        </div>
+      </div>
+
+      <div class="sector-body">
+        <div class="sector-body-text">
+          <p>SaaS organizations face a version of the organizational intelligence problem that is both familiar and uniquely acute. The gap between product roadmap and organizational capability, between declared values and operational culture, between sales narrative and customer success reality — these divergences are as consequential in SaaS as anywhere, and they compound faster because the business model's economics demand it.</p>
+
+          <p>Growth-stage SaaS companies are particularly vulnerable to a specific pattern: the organizational structures, processes, and governance frameworks that worked at 20 employees create technical debt — not just in the codebase, but in the organization — that constrains scaling at 100 or 200 employees. The decisions that felt like pragmatic shortcuts in year one become the governance gaps that make enterprise sales harder, compliance harder, and AI implementation harder.</p>
+
+          <p>For SaaS companies pursuing enterprise contracts, the Pharos diagnostic provides a critical pre-engagement intelligence function: what is the gap between what your organization can credibly promise and what it can operationally deliver? What governance gaps will an enterprise security review surface? What organizational readiness do you need before you can honestly tell a regulated-industry customer that you're ready for their data?</p>
+
+          <div class="sector-svg">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F7F8FC;">
+              <text x="20" y="30" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#8A93B2" font-weight="600" letter-spacing="1">SAAS ORGANIZATION DIVERGENCE PROFILE</text>
+              <rect x="20" y="50" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="50" width="198" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Product Roadmap Declaration</text>
+              <text x="430" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">90%</text>
+              <rect x="20" y="75" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="75" width="110" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Engineering Delivery Capacity</text>
+              <text x="430" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">50%</text>
+              <rect x="20" y="100" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="100" width="88" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Enterprise Governance Readiness</text>
+              <text x="430" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">40%</text>
+              <rect x="20" y="125" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="125" width="132" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Customer Success Alignment</text>
+              <text x="430" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">60%</text>
+              <text x="20" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#8A93B2">Divergence Index: 35 pts — Illustrative data</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sector-sidebar">
+          <h4>Diagnostic Focus Areas</h4>
+          <ul>
+            <li>Scaling readiness assessment</li>
+            <li>Enterprise security posture pre-review</li>
+            <li>Product-market fit diagnostic</li>
+            <li>Governance gap analysis for regulated verticals</li>
+            <li>AI feature governance and data readiness</li>
+            <li>Customer success vs. sales promise alignment</li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-light);">
+            <h4>Common Engagements</h4>
+            <ul>
+              <li>Pre-enterprise sales diagnostic</li>
+              <li>Series A/B readiness assessment</li>
+              <li>SOC 2 / ISO 27001 gap analysis</li>
+              <li>AI product governance framework</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- FINANCIAL SERVICES ──────────────────────────────────── -->
+    <article class="sector-article" id="financial">
+      <div class="sector-article-header">
+        <div class="sector-article-icon">🏦</div>
+        <div class="sector-article-meta">
+          <span class="eyebrow">Sector Intelligence</span>
+          <h2>Financial Services</h2>
+        </div>
+      </div>
+
+      <div class="sector-body">
+        <div class="sector-body-text">
+          <p>Financial services organizations operate in one of the most complex regulatory environments of any industry — and have developed, accordingly, some of the most sophisticated compliance documentation infrastructure. BSA/AML programs, model risk management frameworks, third-party risk management programs: the documentation is often genuinely excellent. The operational gap — between what the documentation describes and what the organization does — is where examination findings, enforcement actions, and reputational risk actually originate.</p>
+
+          <p>Model risk management is a particularly acute example. Financial institutions are required to validate, document, and govern the models they use for credit decisioning, fraud detection, AML transaction monitoring, and increasingly, AI-driven customer interactions. The governance framework is documented. The validation process is documented. What's rarely assessed is the organizational reality of how models are actually deployed, monitored, and governed in practice — and what that gap means for the models now being trained on institutional data.</p>
+
+          <p>Third-party risk management is another gap zone. Financial institutions maintain vendor inventories, conduct due diligence assessments, and document control requirements. The operational gap between the documented program and the actual relationship management — how exceptions are handled, how contractual controls are monitored, what actually happens when a vendor has a security incident — is the gap that regulators increasingly focus on, and the gap that Pharos diagnostics are designed to surface before an examination does.</p>
+
+          <div class="sector-svg">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F7F8FC;">
+              <text x="20" y="30" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#8A93B2" font-weight="600" letter-spacing="1">FINANCIAL SERVICES DIVERGENCE PROFILE</text>
+              <rect x="20" y="50" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="50" width="198" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Compliance Documentation</text>
+              <text x="430" y="62" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">90%</text>
+              <rect x="20" y="75" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="75" width="121" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Operational Compliance Practice</text>
+              <text x="430" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">55%</text>
+              <rect x="20" y="100" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="100" width="154" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Model Risk Framework</text>
+              <text x="430" y="112" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">70%</text>
+              <rect x="20" y="125" width="220" height="14" rx="3" fill="#E8EBF4"/>
+              <rect x="20" y="125" width="77" height="14" rx="3" fill="#5fba3a"/>
+              <text x="250" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#1B2A5E" font-weight="700">Third-Party Risk Practice</text>
+              <text x="430" y="137" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#5fba3a" font-weight="700">35%</text>
+              <text x="20" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#8A93B2">Divergence Index: 30 pts — Illustrative data</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sector-sidebar">
+          <h4>Diagnostic Focus Areas</h4>
+          <ul>
+            <li>BSA/AML program posture vs. operational practice</li>
+            <li>Model risk governance and validation gaps</li>
+            <li>Third-party risk management program audit</li>
+            <li>AI model governance for decisioning systems</li>
+            <li>Pre-examination readiness assessment</li>
+            <li>Digital transformation change management</li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-light);">
+            <h4>Relevant Frameworks</h4>
+            <ul>
+              <li>SR 11-7 Model Risk Management</li>
+              <li>BSA / FinCEN Requirements</li>
+              <li>OCC / FDIC / Fed Examination</li>
+              <li>FFIEC IT Examination Handbook</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /.container -->
+</div>
+
+<!-- ── CTA ─────────────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Surface the Gap in Your Sector?</h2>
+    <p>Run a sector-specific Pharos diagnostic or schedule a discovery call with our team.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://pharos.enhancegov.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Start Diagnostics</a>
+      <a href="mailto:info@enhancegov.com" class="btn btn-outline btn-lg">Schedule Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+          <img src="images/logo.png" alt="EnhanceGov LLC" style="height:32px;width:auto;" />
+          <div>
+            <div class="footer-logo-name">EnhanceGov LLC</div>
+            <div class="footer-logo-tag">Organizational Intelligence</div>
+          </div>
+        </div>
+        <p>Applying intelligence-community tradecraft to strategic advisory — surfacing what your organization won't tell you.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="pharos.html">Pharos Gap Diagnostics™</a></li>
+          <li><a href="https://pharos.enhancegov.com" target="_blank" rel="noopener">Access Platform</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/enhancegov" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:info@enhancegov.com">info@enhancegov.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 EnhanceGov LLC. All rights reserved. Norfolk, Virginia.</span>
+      <span class="footer-trademark">Pharos Method™ and Pharos Gap Diagnostics™ are trademarks of EnhanceGov LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>
